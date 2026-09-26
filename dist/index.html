@@ -71,6 +71,7 @@
     .hero-copy{position:relative}
     .hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px dashed var(--ink);border-radius:2px;background:var(--yellow);transform:rotate(-1deg);font-size:12px;font-weight:900;letter-spacing:.1em}
     .hero h1{margin:27px 0 22px;font-size:clamp(48px,6vw,78px);line-height:.98;letter-spacing:-.045em;font-weight:500}
+    .hero h1 .hello{display:inline-block;font-size:.78em;letter-spacing:-.035em}
     .hero h1 em{font-weight:400;color:var(--blue);text-decoration:underline;text-decoration-thickness:7px;text-decoration-color:rgba(77,115,200,.23);text-underline-offset:7px}
     .hero-lead{max-width:650px;font-size:clamp(18px,2vw,24px);line-height:1.48;color:#3f403b}
     .hero-lead strong{color:var(--ink)}
@@ -89,7 +90,7 @@
     .portrait-caption{position:absolute;left:24px;right:20px;bottom:14px;display:flex;align-items:end;justify-content:space-between;gap:10px}
     .portrait-caption b{font-size:18px}.portrait-caption span{font-size:11px;letter-spacing:.12em;color:var(--muted)}
     .sticker{position:absolute;background:var(--coral);color:#fff;padding:10px 14px;border-radius:50%;font-weight:900;font-size:13px;right:-25px;top:18%;transform:rotate(11deg);box-shadow:2px 4px 0 var(--ink)}
-    .pin{position:absolute;left:-36px;bottom:28px;width:112px;padding:13px;background:var(--green-soft);border:1px solid var(--green);transform:rotate(-7deg);font-size:12px;font-weight:800;line-height:1.5;box-shadow:var(--shadow)}
+    .pin{position:absolute;left:-36px;bottom:92px;width:112px;padding:13px;background:var(--green-soft);border:1px solid var(--green);transform:rotate(-7deg);font-size:12px;font-weight:800;line-height:1.5;box-shadow:var(--shadow)}
 
     section{scroll-margin-top:90px}
     .section{padding:110px 0}
@@ -141,10 +142,22 @@
     .principle blockquote{margin:0;font:italic 500 clamp(22px,3vw,34px)/1.35 Georgia;max-width:720px}
     .principle span{max-width:230px;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase}
 
+    .advantages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .advantage-card{position:relative;min-height:220px;padding:35px 34px 30px;background:var(--paper-2);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .advantage-card:nth-child(1){background:var(--blue-soft);transform:rotate(-.5deg)}
+    .advantage-card:nth-child(2){background:var(--green-soft);transform:rotate(.45deg)}
+    .advantage-card:nth-child(3){background:var(--coral-soft);transform:rotate(.35deg)}
+    .advantage-card:nth-child(4){background:#f4e6a9;transform:rotate(-.4deg)}
+    .advantage-card:nth-child(5){grid-column:1/-1;min-height:180px;background:#e8dfef;transform:rotate(.15deg)}
+    .advantage-no{font:italic 600 42px/1 Georgia;color:rgba(32,33,30,.28)}
+    .advantage-card h3{margin:18px 0 9px;font:600 25px Georgia,"Songti SC",serif}
+    .advantage-card p{margin:0;color:#4f4f49;font-size:15px}
+    .advantage-label{position:absolute;right:18px;top:18px;padding:5px 9px;border:1px solid var(--ink);border-radius:999px;font:800 10px ui-monospace,monospace;letter-spacing:.08em;background:rgba(255,255,255,.45)}
+
     .about-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:64px;align-items:start}
     .about-card{position:sticky;top:110px;padding:22px 22px 30px;transform:rotate(-1deg)}
     .about-card .mini-portrait{height:310px;overflow:hidden;background:#e7ddd0}
-    .about-card img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+    .about-card img{width:100%;height:100%;object-fit:cover;object-position:center top}
     .about-card h3{margin:22px 0 6px;font:600 31px Georgia,"Songti SC",serif}
     .about-card p{margin:0;color:var(--muted)}
     .timeline{border-left:2px solid var(--ink);padding-left:36px}
@@ -154,6 +167,22 @@
     .time-item time{font:800 12px ui-monospace,monospace;color:var(--coral)}
     .time-item h3{margin:7px 0 4px;font:600 23px Georgia,"Songti SC",serif}
     .time-item p{margin:0;color:var(--muted)}
+
+    .skills-board{padding:48px;background:rgba(255,250,240,.96);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .skills-note{display:flex;justify-content:space-between;gap:20px;padding-bottom:24px;margin-bottom:28px;border-bottom:1px dashed var(--line);color:var(--muted);font-size:13px}
+    .skills-list{display:grid;gap:22px}
+    .skill-row{display:grid;grid-template-columns:220px 1fr 78px;gap:22px;align-items:center}
+    .skill-name strong{display:block;font:600 19px Georgia,"Songti SC",serif}
+    .skill-name span{display:block;margin-top:4px;color:var(--muted);font-size:11px;letter-spacing:.04em}
+    .skill-meter{height:14px;padding:3px;border:1px solid var(--ink);background:#fff}
+    .skill-fill{height:100%;width:var(--level);background:linear-gradient(90deg,var(--blue),var(--coral))}
+    .skill-score{text-align:right;font:800 14px ui-monospace,monospace;white-space:nowrap}
+    .skill-score small{display:block;color:var(--muted);font-size:9px;letter-spacing:.08em}
+    .skill-cert{margin-top:34px;display:grid;grid-template-columns:.7fr 1.3fr;gap:1px;background:var(--ink);border:1px solid var(--ink)}
+    .skill-cert > div{padding:26px;background:var(--yellow)}
+    .skill-cert > div:last-child{background:var(--green-soft)}
+    .skill-cert strong{display:block;font:600 30px Georgia,"Songti SC",serif;margin-bottom:5px}
+    .skill-cert span{font-size:13px;color:#4d4c47}
 
     .footer{position:relative;margin-top:80px;padding:78px 0 35px;background:var(--ink);color:var(--paper)}
     .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
@@ -171,13 +200,13 @@
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;gap:64px;padding-top:65px}.portrait-wrap{justify-self:center;width:min(78vw,390px)}
       .section-head{grid-template-columns:1fr}.section-num{font-size:70px}.project{grid-template-columns:1fr}.project-visual{min-height:430px}.details{grid-template-columns:repeat(2,1fr)}.project.open .details{max-height:800px}
-      .approach-grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.about-card{position:relative;top:auto;max-width:480px;margin:auto}.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.footer-guide{display:none}
+      .approach-grid{grid-template-columns:repeat(2,1fr)}.advantages-grid{grid-template-columns:1fr}.advantage-card:nth-child(5){grid-column:auto}.about-grid{grid-template-columns:1fr}.about-card{position:relative;top:auto;max-width:480px;margin:auto}.skill-row{grid-template-columns:180px 1fr 72px}.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.footer-guide{display:none}
     }
     @media (max-width:640px){
       .wrap{width:min(calc(100% - 28px),var(--max))}.nav-inner{height:64px}.menu-btn{display:block}.nav-links{position:absolute;top:64px;left:0;right:0;padding:20px;display:none;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-links a{padding:8px}.resume-link{text-align:center}
-      .hero{min-height:auto;padding:58px 0 80px}.hero h1{font-size:clamp(46px,15vw,74px)}.hero-note{display:none}.sticker{right:-9px}.pin{left:-8px}
+      .hero{min-height:auto;padding:58px 0 80px}.hero h1{font-size:clamp(43px,13vw,68px)}.hero h1 .hello{font-size:.7em}.hero-note{display:none}.sticker{right:-9px}.pin{left:-8px;bottom:88px}
       .section{padding:82px 0}.project-copy{padding:38px 25px 34px}.project-visual{padding:34px 24px;min-height:330px}.evidence{grid-template-columns:1fr}.evidence div{display:flex;gap:12px;align-items:baseline}.evidence strong{min-width:92px}.details{grid-template-columns:1fr}.project.open .details{max-height:1200px}
-      .approach-board{padding:44px 26px}.approach-grid{grid-template-columns:1fr}.principle{align-items:flex-start;flex-direction:column}.copyright{flex-direction:column}.footer{padding-top:62px}
+      .approach-board{padding:44px 26px}.approach-grid{grid-template-columns:1fr}.principle{align-items:flex-start;flex-direction:column}.advantage-card{padding:29px 25px}.skills-board{padding:32px 22px}.skills-note{flex-direction:column}.skill-row{grid-template-columns:1fr 72px;gap:10px}.skill-meter{grid-column:1/-1;grid-row:2}.skill-score{grid-column:2;grid-row:1}.skill-cert{grid-template-columns:1fr}.copyright{flex-direction:column}.footer{padding-top:62px}
     }
     @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
@@ -200,7 +229,7 @@
       <header class="hero wrap" id="top">
         <div class="hero-copy reveal">
           <span class="hero-kicker">AI PRODUCT FIELD NOTES · 2026</span>
-          <h1 class="serif">你好，我是钱宸。<br>我把复杂决策做成<br><em>可验证的 AI 产品。</em></h1>
+          <h1 class="serif"><span class="hello">Hi, I’m Qian Chen.</span><br>我把复杂决策做成<br><em>可验证的 AI 产品。</em></h1>
           <p class="hero-lead">从空间设计走向 AI 产品，我擅长把领域知识拆成<strong>可解释的 Agent 工作流</strong>，并用评测、证据与人工确认，让生成结果真正可用。</p>
           <div class="tags" aria-label="核心能力">
             <span class="tag">AGENT / WORKFLOW</span><span class="tag">RAG</span><span class="tag">EVALUATION</span><span class="tag">SPATIAL AI</span><span class="tag">VIBE CODING</span>
@@ -242,9 +271,36 @@
         <div class="approach-board reveal"><div class="approach-grid"><div class="step"><span class="step-num">01</span><h3>Define</h3><p>先定位高频、高成本或高风险的决策任务，再判断 AI 是否真的必要。</p></div><div class="step"><span class="step-num">02</span><h3>Design</h3><p>把复杂任务拆成输入、规则、检索、模型、工具与人工确认组成的工作流。</p></div><div class="step"><span class="step-num">03</span><h3>Evaluate</h3><p>建立测试集、成功标准和坏案例分类，区分体验问题与模型问题。</p></div><div class="step"><span class="step-num">04</span><h3>Deliver</h3><p>用原型验证交互与价值，再围绕真实使用数据持续缩小不确定性。</p></div></div><div class="principle"><blockquote>“生成不是终点。能解释、能验证、知道何时交还给人，才是产品。”</blockquote><span>My working principle — evidence before confidence</span></div></div>
       </section>
 
+      <section class="section wrap" id="advantages">
+        <div class="section-head reveal"><div class="section-num">03</div><div class="section-title"><span class="eyebrow">Why me / 个人优势</span><h2>既能快速进入问题，<br>也能把人和资源组织起来。</h2><p class="section-intro">我的优势不只来自工具熟练度，更来自结构化思考、用户洞察、内容传播和跨团队推动能力的组合。</p></div></div>
+        <div class="advantages-grid">
+          <article class="advantage-card reveal"><span class="advantage-label">STRUCTURE</span><span class="advantage-no">01</span><h3>把模糊任务拆成可执行路径</h3><p>擅长将复杂、模糊的任务进行结构化拆解，快速学习并掌握新知识，熟练运用各类 AI 产品工具提升工作效率。</p></article>
+          <article class="advantage-card reveal"><span class="advantage-label">0 → 1</span><span class="advantage-no">02</span><h3>从用户痛点走到产品落地</h3><p>对新兴产品理念保持高度敏感，能够深入调研用户需求、精准识别痛点，并深度参与多条产品线从 0 到 1 的规划与落地全过程。</p></article>
+          <article class="advantage-card reveal"><span class="advantage-label">CONTENT</span><span class="advantage-no">03</span><h3>理解内容，也理解传播</h3><p>具备小红书平台运营经验，擅长内容创作与用户互动，具备良好的用户传播意识。</p></article>
+          <article class="advantage-card reveal"><span class="advantage-label">GLOBAL</span><span class="advantage-no">04</span><h3>跨语言沟通能力</h3><p>英语能力突出，PTE 71 分（相当于雅思 7.5），具备优秀的跨语言沟通能力。</p></article>
+          <article class="advantage-card reveal"><span class="advantage-label">ENFJ</span><span class="advantage-no">05</span><h3>让不同角色朝同一个结果前进</h3><p>ENFJ 性格类型，擅长跨部门协作与沟通，能够高效推动多方资源整合与项目落地。</p></article>
+        </div>
+      </section>
+
       <section class="section wrap" id="about">
-        <div class="section-head reveal"><div class="section-num">03</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从设计复杂空间，<br>到设计复杂决策。</h2></div></div>
-        <div class="about-grid"><aside class="about-card paper reveal"><span class="tape"></span><div class="mini-portrait"><img src="assets/chenchen-closed-fullbody.png" alt="钱宸的水彩全身个人 IP 形象"></div><h3>钱宸 · Qian Chen</h3><p>AI 产品经理 / 空间与景观设计背景<br>Agent · RAG · 评测 · 原型实现</p></aside><div class="timeline reveal"><div class="time-item"><time>2026.06 — PRESENT</time><h3>她易景观设计咨询 · AI 产品经理</h3><p>围绕北美节水景观场景，将植物知识、覆盖率规则与生成式设计整合为可体验产品。</p></div><div class="time-item"><time>2025.11 — 2026.05</time><h3>深圳逐界科技 · AI 产品经理</h3><p>探索空间设计与规划规则中的 AI 决策支持，设计多源材料解析、方案推演与预审流程。</p></div><div class="time-item"><time>2024.11 — 2025.01</time><h3>广东太古可口可乐 · 品牌营销 / 产品实习</h3><p>从真实营销任务出发，构建有证据链、可评测的营销机会与方案生成助手。</p></div><div class="time-item"><time>2022.09 — 2025.10</time><h3>Politecnico di Milano · 景观遗产硕士</h3><p>项目管理、城市数据可视化、数据库管理与 UX，为跨学科 AI 产品工作打下基础。</p></div><div class="time-item"><time>2017.09 — 2021.06</time><h3>National Taiwan Normal University · 景观建筑学士</h3><p>GPA 前 10%；形成空间推理、视觉表达与复杂约束下的方案设计能力。</p></div></div></div>
+        <div class="section-head reveal"><div class="section-num">04</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从设计复杂空间，<br>到设计复杂决策。</h2></div></div>
+        <div class="about-grid"><aside class="about-card paper reveal"><span class="tape"></span><div class="mini-portrait"><img src="assets/chenchen-closed-fullbody.png" alt="钱宸的水彩全身个人 IP 形象"></div><h3>钱宸 · Qian Chen</h3><p>AI 产品经理 / 空间与景观设计背景<br>Agent · RAG · 评测 · 原型实现</p></aside><div class="timeline reveal"><div class="time-item"><time>2026.06 — PRESENT</time><h3>她易景观设计咨询 · AI 产品经理</h3><p>围绕北美节水景观场景，将植物知识、覆盖率规则与生成式设计整合为可体验产品。</p></div><div class="time-item"><time>2025.11 — 2026.05</time><h3>深圳逐界科技 · AI 产品经理</h3><p>探索空间设计与规划规则中的 AI 决策支持，设计多源材料解析、方案推演与预审流程。</p></div><div class="time-item"><time>2024.11 — 2025.01</time><h3>广东太古可口可乐 · 品牌营销 / 产品实习</h3><p>从真实营销任务出发，构建有证据链、可评测的营销机会与方案生成助手。</p></div><div class="time-item"><time>2022.09 — 2025.10</time><h3>Politecnico di Milano · 景观遗产硕士</h3><p>项目管理、城市数据可视化、数据库管理与 UX，为跨学科 AI 产品工作打下基础。</p></div><div class="time-item"><time>2017.09 — 2021.06</time><h3>Chuang Yuan Christian University, Taiwan · 景观建筑学士</h3><p>GPA 前 10%；形成空间推理、视觉表达与复杂约束下的方案设计能力。</p></div></div></div>
+      </section>
+
+      <section class="section wrap" id="skills">
+        <div class="section-head reveal"><div class="section-num">05</div><div class="section-title"><span class="eyebrow">Skill map / 技能汇总</span><h2>从产品判断到原型落地，<br>我的能力组合一览。</h2><p class="section-intro">下列分数为基于现有项目经验的五分制自评，用于快速展示能力重心，不等同于第三方认证。</p></div></div>
+        <div class="skills-board reveal">
+          <div class="skills-note"><strong>SELF-ASSESSMENT · 5 POINT SCALE</strong><span>5 = 可独立负责并沉淀方法　4 = 可独立完成项目任务　3 = 可在项目中熟练使用</span></div>
+          <div class="skills-list">
+            <div class="skill-row"><div class="skill-name"><strong>AI 产品规划与 PRD</strong><span>场景定义 · 路线图 · 需求拆解</span></div><div class="skill-meter"><div class="skill-fill" style="--level:90%"></div></div><div class="skill-score">4.5 / 5<small>自评</small></div></div>
+            <div class="skill-row"><div class="skill-name"><strong>Agent / Workflow</strong><span>任务编排 · 工具调用 · HITL</span></div><div class="skill-meter"><div class="skill-fill" style="--level:90%"></div></div><div class="skill-score">4.5 / 5<small>自评</small></div></div>
+            <div class="skill-row"><div class="skill-name"><strong>评测与坏案例分析</strong><span>测试集 · 指标 · 迭代归因</span></div><div class="skill-meter"><div class="skill-fill" style="--level:90%"></div></div><div class="skill-score">4.5 / 5<small>自评</small></div></div>
+            <div class="skill-row"><div class="skill-name"><strong>RAG 与 Prompt</strong><span>知识库 · 检索 · 提示词设计</span></div><div class="skill-meter"><div class="skill-fill" style="--level:80%"></div></div><div class="skill-score">4.0 / 5<small>自评</small></div></div>
+            <div class="skill-row"><div class="skill-name"><strong>原型与 Vibe Coding</strong><span>Figma · Axure · Codex · Claude Code</span></div><div class="skill-meter"><div class="skill-fill" style="--level:80%"></div></div><div class="skill-score">4.0 / 5<small>自评</small></div></div>
+            <div class="skill-row"><div class="skill-name"><strong>用户研究与内容运营</strong><span>访谈 · 竞品 · 小红书 · 用户互动</span></div><div class="skill-meter"><div class="skill-fill" style="--level:80%"></div></div><div class="skill-score">4.0 / 5<small>自评</small></div></div>
+          </div>
+          <div class="skill-cert"><div><strong>PTE 71</strong><span>约等于 IELTS 7.5 · 英语能力认证</span></div><div><strong>常用工具</strong><span>Coze · Figma · XMind · Axure · Codex · Claude Code · DeepSeek · Gemini · Midjourney</span></div></div>
+        </div>
       </section>
     </main>
 
