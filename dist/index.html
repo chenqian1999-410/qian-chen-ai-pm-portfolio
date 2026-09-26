@@ -90,7 +90,10 @@
     .portrait-caption{position:absolute;left:24px;right:20px;bottom:14px;display:flex;align-items:end;justify-content:space-between;gap:10px}
     .portrait-caption b{font-size:18px}.portrait-caption span{font-size:11px;letter-spacing:.12em;color:var(--muted)}
     .sticker{position:absolute;background:var(--coral);color:#fff;padding:10px 14px;border-radius:50%;font-weight:900;font-size:13px;right:-25px;top:18%;transform:rotate(11deg);box-shadow:2px 4px 0 var(--ink)}
-    .pin{position:absolute;left:-36px;bottom:92px;width:112px;padding:13px;background:var(--green-soft);border:1px solid var(--green);transform:rotate(-7deg);font-size:12px;font-weight:800;line-height:1.5;box-shadow:var(--shadow)}
+    .pin{position:absolute;left:-48px;bottom:92px;width:190px;padding:14px 15px 13px;background:var(--paper-2);border:1.5px solid var(--ink);border-top:7px solid var(--blue);transform:rotate(-5deg);font-size:12px;font-weight:800;line-height:1.45;box-shadow:6px 7px 0 rgba(233,97,69,.7)}
+    .pin-main{display:block;font:800 13px/1.45 ui-sans-serif,-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+    .pin-main b{padding:0 4px;color:var(--coral)}
+    .pin-rank{display:block;margin-top:9px;padding-top:8px;border-top:1px dashed var(--line);color:var(--blue);font:800 10px/1.35 ui-monospace,monospace;letter-spacing:.04em}
 
     section{scroll-margin-top:90px}
     .section{padding:110px 0}
@@ -143,12 +146,12 @@
     .principle span{max-width:230px;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase}
 
     .advantages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .advantage-card{position:relative;min-height:220px;padding:35px 34px 30px;background:var(--paper-2);border:1px solid var(--line);box-shadow:var(--shadow)}
-    .advantage-card:nth-child(1){background:var(--blue-soft);transform:rotate(-.5deg)}
-    .advantage-card:nth-child(2){background:var(--green-soft);transform:rotate(.45deg)}
-    .advantage-card:nth-child(3){background:var(--coral-soft);transform:rotate(.35deg)}
-    .advantage-card:nth-child(4){background:#f4e6a9;transform:rotate(-.4deg)}
-    .advantage-card:nth-child(5){grid-column:1/-1;min-height:180px;background:#e8dfef;transform:rotate(.15deg)}
+    .advantage-card{position:relative;min-height:220px;padding:35px 34px 30px;background:rgba(255,250,240,.8);border:1px solid var(--line);box-shadow:0 10px 30px rgba(63,48,30,.08)}
+    .advantage-card:nth-child(1){transform:rotate(-.35deg)}
+    .advantage-card:nth-child(2){transform:rotate(.3deg)}
+    .advantage-card:nth-child(3){transform:rotate(.25deg)}
+    .advantage-card:nth-child(4){transform:rotate(-.3deg)}
+    .advantage-card:nth-child(5){grid-column:1/-1;min-height:180px;transform:rotate(.1deg)}
     .advantage-no{font:italic 600 42px/1 Georgia;color:rgba(32,33,30,.28)}
     .advantage-card h3{margin:18px 0 9px;font:600 25px Georgia,"Songti SC",serif}
     .advantage-card p{margin:0;color:#4f4f49;font-size:15px}
@@ -204,7 +207,7 @@
     }
     @media (max-width:640px){
       .wrap{width:min(calc(100% - 28px),var(--max))}.nav-inner{height:64px}.menu-btn{display:block}.nav-links{position:absolute;top:64px;left:0;right:0;padding:20px;display:none;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-links a{padding:8px}.resume-link{text-align:center}
-      .hero{min-height:auto;padding:58px 0 80px}.hero h1{font-size:clamp(43px,13vw,68px)}.hero h1 .hello{font-size:.7em}.hero-note{display:none}.sticker{right:-9px}.pin{left:-8px;bottom:88px}
+      .hero{min-height:auto;padding:58px 0 80px}.hero h1{font-size:clamp(43px,13vw,68px)}.hero h1 .hello{font-size:.7em}.hero-note{display:none}.sticker{right:-9px}.pin{left:-8px;bottom:88px;width:180px}
       .section{padding:82px 0}.project-copy{padding:38px 25px 34px}.project-visual{padding:34px 24px;min-height:330px}.evidence{grid-template-columns:1fr}.evidence div{display:flex;gap:12px;align-items:baseline}.evidence strong{min-width:92px}.details{grid-template-columns:1fr}.project.open .details{max-height:1200px}
       .approach-board{padding:44px 26px}.approach-grid{grid-template-columns:1fr}.principle{align-items:flex-start;flex-direction:column}.advantage-card{padding:29px 25px}.skills-board{padding:32px 22px}.skills-note{flex-direction:column}.skill-row{grid-template-columns:1fr 72px;gap:10px}.skill-meter{grid-column:1/-1;grid-row:2}.skill-score{grid-column:2;grid-row:1}.skill-cert{grid-template-columns:1fr}.copyright{flex-direction:column}.footer{padding-top:62px}
     }
@@ -239,7 +242,7 @@
         </div>
         <div class="portrait-wrap reveal">
           <div class="portrait-card"><span class="tape"></span><img src="assets/chenchen-smile-avatar.png" alt="钱宸的水彩个人 IP 形象"><div class="portrait-caption"><b class="serif">钱宸 Qian Chen</b><span>AI PRODUCT MANAGER</span></div></div>
-          <div class="sticker">OPEN TO<br>WORK!</div><div class="pin scribble">空间设计背景<br>×<br>AI 产品判断</div>
+          <div class="sticker">OPEN TO<br>WORK!</div><div class="pin"><span class="pin-main">空间设计背景 <b>×</b> AI 产品应用</span><span class="pin-rank">米兰理工大学 · QS 排名 87</span></div>
         </div>
       </header>
 
@@ -283,8 +286,8 @@
       </section>
 
       <section class="section wrap" id="about">
-        <div class="section-head reveal"><div class="section-num">04</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从设计复杂空间，<br>到设计复杂决策。</h2></div></div>
-        <div class="about-grid"><aside class="about-card paper reveal"><span class="tape"></span><div class="mini-portrait"><img src="assets/chenchen-closed-fullbody.png" alt="钱宸的水彩全身个人 IP 形象"></div><h3>钱宸 · Qian Chen</h3><p>AI 产品经理 / 空间与景观设计背景<br>Agent · RAG · 评测 · 原型实现</p></aside><div class="timeline reveal"><div class="time-item"><time>2026.06 — PRESENT</time><h3>她易景观设计咨询 · AI 产品经理</h3><p>围绕北美节水景观场景，将植物知识、覆盖率规则与生成式设计整合为可体验产品。</p></div><div class="time-item"><time>2025.11 — 2026.05</time><h3>深圳逐界科技 · AI 产品经理</h3><p>探索空间设计与规划规则中的 AI 决策支持，设计多源材料解析、方案推演与预审流程。</p></div><div class="time-item"><time>2024.11 — 2025.01</time><h3>广东太古可口可乐 · 品牌营销 / 产品实习</h3><p>从真实营销任务出发，构建有证据链、可评测的营销机会与方案生成助手。</p></div><div class="time-item"><time>2022.09 — 2025.10</time><h3>Politecnico di Milano · 景观遗产硕士</h3><p>项目管理、城市数据可视化、数据库管理与 UX，为跨学科 AI 产品工作打下基础。</p></div><div class="time-item"><time>2017.09 — 2021.06</time><h3>Chuang Yuan Christian University, Taiwan · 景观建筑学士</h3><p>GPA 前 10%；形成空间推理、视觉表达与复杂约束下的方案设计能力。</p></div></div></div>
+        <div class="section-head reveal"><div class="section-num">04</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从空间设计<br>到复杂业务拆解与提供 AI 解决方案。</h2></div></div>
+        <div class="about-grid"><aside class="about-card paper reveal"><span class="tape"></span><div class="mini-portrait"><img src="assets/chenchen-closed-fullbody.png" alt="钱宸的水彩全身个人 IP 形象"></div><h3>钱宸 · Qian Chen</h3><p>AI 产品经理 / 空间与景观设计背景<br>Agent · RAG · 评测 · 原型实现</p></aside><div class="timeline reveal"><div class="time-item"><time>2026.06 — PRESENT</time><h3>她易景观设计咨询 · AI 产品经理</h3><p>围绕北美节水景观场景，将植物知识、覆盖率规则与生成式设计整合为可体验产品。</p></div><div class="time-item"><time>2025.11 — 2026.05</time><h3>深圳逐界科技 · AI 产品经理</h3><p>探索空间设计与规划规则中的 AI 决策支持，设计多源材料解析、方案推演与预审流程。</p></div><div class="time-item"><time>2024.11 — 2025.01</time><h3>广东太古可口可乐 · 品牌营销 / 产品实习</h3><p>从真实营销任务出发，构建有证据链、可评测的营销机会与方案生成助手。</p></div><div class="time-item"><time>2022.09 — 2025.10</time><h3>米兰理工大学（QS 87） · Politecnico di Milano · 景观遗产硕士</h3><p>项目管理、城市数据可视化、数据库管理与 UX，为跨学科 AI 产品工作打下基础。</p></div><div class="time-item"><time>2017.09 — 2021.06</time><h3>台湾中原大学 · Chuang Yuan Christian University, Taiwan · 景观建筑学士</h3><p>GPA 前 10%；形成空间推理、视觉表达与复杂约束下的方案设计能力。</p></div></div></div>
       </section>
 
       <section class="section wrap" id="skills">
