@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="钱宸的 AI 产品经理作品集：空间智能、Agent、RAG 与 AI 产品评测。">
+  <title>钱宸｜AI 产品经理作品集</title>
+  <style>
+    :root{
+      --paper:#f5f0e7;
+      --paper-2:#fffaf0;
+      --ink:#20211e;
+      --muted:#696861;
+      --line:#cfc5b5;
+      --blue:#4d73c8;
+      --blue-soft:#dce5ff;
+      --green:#637554;
+      --green-soft:#dfe8d6;
+      --coral:#e96145;
+      --coral-soft:#f7d8cb;
+      --yellow:#f2d977;
+      --shadow:0 18px 50px rgba(63,48,30,.13);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        linear-gradient(rgba(66,74,66,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66,74,66,.055) 1px, transparent 1px),
+        var(--paper);
+      background-size:28px 28px;
+      font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button{font:inherit;color:inherit}
+    ::selection{background:var(--yellow);color:var(--ink)}
+    .skip-link{position:fixed;left:12px;top:-60px;z-index:999;background:#fff;padding:10px 14px;border:2px solid var(--ink)}
+    .skip-link:focus{top:12px}
+    .page{position:relative;isolation:isolate}
+    .page::before,.page::after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);opacity:.5;pointer-events:none}
+    .page::before{width:340px;height:340px;background:#d9e5f5;right:-130px;top:400px}
+    .page::after{width:300px;height:300px;background:#ecd7df;left:-170px;top:1420px}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:0 auto}
+    .serif{font-family:Georgia,"Times New Roman","Songti SC",serif}
+    .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+    .scribble{font-family:"Kaiti SC","STKaiti",cursive;font-weight:700}
+    .paper{background:rgba(255,250,240,.94);border:1px solid rgba(111,99,79,.24);box-shadow:var(--shadow)}
+    .tape{position:absolute;width:92px;height:27px;background:rgba(239,216,151,.64);top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);clip-path:polygon(3% 7%,97% 0,100% 86%,5% 100%)}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      border-bottom:1px solid rgba(55,53,46,.16);
+      background:rgba(245,240,231,.86);backdrop-filter:blur(14px);
+    }
+    .nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{text-decoration:none;display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.02em}
+    .brand-mark{width:38px;height:38px;border-radius:50% 46% 52% 45%;display:grid;place-items:center;background:var(--ink);color:var(--paper);font:italic 700 18px Georgia;transform:rotate(-5deg)}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:700}
+    .nav-links a{text-decoration:none;position:relative}
+    .nav-links a::after{content:"";position:absolute;height:2px;background:var(--coral);left:0;right:100%;bottom:-5px;transition:right .25s ease}
+    .nav-links a:hover::after,.nav-links a:focus-visible::after{right:0}
+    .resume-link{border:1px solid var(--ink);padding:8px 14px;border-radius:999px}
+    .menu-btn{display:none;border:0;background:none;padding:8px;font-weight:800}
+
+    .hero{min-height:calc(100vh - 74px);display:grid;grid-template-columns:minmax(0,1.28fr) minmax(300px,.72fr);gap:70px;align-items:center;padding:84px 0 92px}
+    .hero-copy{position:relative}
+    .hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px dashed var(--ink);border-radius:2px;background:var(--yellow);transform:rotate(-1deg);font-size:12px;font-weight:900;letter-spacing:.1em}
+    .hero h1{margin:27px 0 22px;font-size:clamp(48px,6vw,78px);line-height:.98;letter-spacing:-.045em;font-weight:500}
+    .hero h1 em{font-weight:400;color:var(--blue);text-decoration:underline;text-decoration-thickness:7px;text-decoration-color:rgba(77,115,200,.23);text-underline-offset:7px}
+    .hero-lead{max-width:650px;font-size:clamp(18px,2vw,24px);line-height:1.48;color:#3f403b}
+    .hero-lead strong{color:var(--ink)}
+    .tags{display:flex;flex-wrap:wrap;gap:9px;margin:30px 0 34px}
+    .tag{padding:7px 12px;border:1px solid var(--ink);border-radius:999px;background:var(--paper-2);font:700 12px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;box-shadow:2px 3px 0 var(--ink)}
+    .actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px}
+    .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border:1.5px solid var(--ink);padding:12px 18px;border-radius:3px;font-weight:850;background:var(--ink);color:var(--paper);transition:transform .2s,box-shadow .2s}
+    .btn:hover{transform:translate(-2px,-2px);box-shadow:5px 6px 0 var(--coral)}
+    .btn.secondary{background:transparent;color:var(--ink)}
+    .hero-note{position:absolute;right:1%;bottom:-35px;transform:rotate(4deg);font-size:14px;color:var(--coral)}
+    .hero-note::before{content:"↖ ";font-size:25px}
+
+    .portrait-wrap{position:relative;justify-self:end;width:min(100%,390px)}
+    .portrait-card{position:relative;padding:18px 18px 58px;background:#fffaf2;border:1px solid #bcb2a4;box-shadow:12px 15px 0 rgba(77,115,200,.2),var(--shadow);transform:rotate(2.4deg)}
+    .portrait-card img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center 20%;filter:saturate(.93) contrast(.98)}
+    .portrait-caption{position:absolute;left:24px;right:20px;bottom:14px;display:flex;align-items:end;justify-content:space-between;gap:10px}
+    .portrait-caption b{font-size:18px}.portrait-caption span{font-size:11px;letter-spacing:.12em;color:var(--muted)}
+    .sticker{position:absolute;background:var(--coral);color:#fff;padding:10px 14px;border-radius:50%;font-weight:900;font-size:13px;right:-25px;top:18%;transform:rotate(11deg);box-shadow:2px 4px 0 var(--ink)}
+    .pin{position:absolute;left:-36px;bottom:28px;width:112px;padding:13px;background:var(--green-soft);border:1px solid var(--green);transform:rotate(-7deg);font-size:12px;font-weight:800;line-height:1.5;box-shadow:var(--shadow)}
+
+    section{scroll-margin-top:90px}
+    .section{padding:110px 0}
+    .section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:40px;align-items:end;margin-bottom:50px}
+    .section-num{font:italic 500 clamp(64px,8vw,110px)/.8 Georgia;color:rgba(32,33,30,.14)}
+    .section-title h2{margin:8px 0 0;font:500 clamp(34px,5vw,62px)/1.04 Georgia,"Songti SC",serif;letter-spacing:-.035em}
+    .section-intro{margin:16px 0 0;max-width:700px;color:var(--muted);font-size:17px}
+
+    .work-list{display:grid;gap:54px}
+    .project{position:relative;display:grid;grid-template-columns:1.08fr .92fr;min-height:590px}
+    .project:nth-child(even){grid-template-columns:.92fr 1.08fr}
+    .project:nth-child(even) .project-visual{order:2}
+    .project-visual{position:relative;min-height:100%;padding:42px;display:grid;place-items:center;overflow:hidden;background:var(--project-soft)}
+    .project-visual::after{content:"";position:absolute;inset:20px;border:1px dashed rgba(32,33,30,.28);pointer-events:none}
+    .project-shot{position:relative;z-index:1;padding:11px 11px 38px;background:#fff;box-shadow:0 20px 45px rgba(38,36,29,.24);transform:rotate(var(--tilt));transition:transform .35s ease}
+    .project:hover .project-shot{transform:rotate(0deg) scale(1.015)}
+    .project-shot img{width:100%;aspect-ratio:1.18;object-fit:cover;object-position:top;border:1px solid #ddd}
+    .project-shot figcaption{position:absolute;left:16px;bottom:9px;font:700 12px/1.2 ui-monospace,monospace;color:#4f4e48}
+    .project-index{position:absolute;top:28px;left:28px;z-index:3;width:49px;height:49px;display:grid;place-items:center;border-radius:50%;background:var(--project);color:#fff;font:800 15px ui-monospace,monospace;box-shadow:3px 4px 0 var(--ink)}
+    .project-copy{padding:56px 52px 45px;background:rgba(255,250,240,.94);display:flex;flex-direction:column}
+    .project-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .meta{padding:5px 9px;background:var(--project-soft);color:#3c3b37;font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+    .project h3{margin:0;font:600 clamp(30px,4vw,48px)/1.08 Georgia,"Songti SC",serif;letter-spacing:-.025em}
+    .project-question{margin:19px 0 25px;font-size:17px;color:#4b4b45}
+    .project-insight{padding:17px 18px;border-left:5px solid var(--project);background:var(--project-soft);font-weight:760}
+    .evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:26px 0}
+    .evidence div{padding:13px 11px;border-top:1px solid var(--line)}
+    .evidence strong{display:block;font:700 22px/1 Georgia;color:var(--project);margin-bottom:7px}
+    .evidence span{font-size:11px;color:var(--muted);line-height:1.35;display:block}
+    .project-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:auto}
+    .text-link{font-weight:900;text-decoration-thickness:2px;text-underline-offset:5px}
+    .text-link:hover{color:var(--project)}
+    .details-toggle{border:0;border-bottom:2px dashed currentColor;background:transparent;padding:4px 0;font-weight:850;cursor:pointer}
+    .details{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink);max-height:0;overflow:hidden;opacity:0;transition:max-height .65s ease,opacity .45s ease}
+    .project.open .details{max-height:460px;opacity:1}
+    .detail{background:var(--paper-2);padding:28px 24px;min-height:176px}
+    .detail b{font:600 20px Georgia,"Songti SC",serif;display:block;margin-bottom:10px}
+    .detail p{margin:0;color:var(--muted);font-size:14px}
+    .massing{--project:var(--blue);--project-soft:var(--blue-soft);--tilt:-2deg}
+    .garden{--project:var(--green);--project-soft:var(--green-soft);--tilt:2deg}
+    .marketing{--project:var(--coral);--project-soft:var(--coral-soft);--tilt:-1.5deg}
+
+    .approach-board{position:relative;padding:55px 48px;background:#25332b;color:#f9f3e9;box-shadow:var(--shadow);transform:rotate(-.2deg)}
+    .approach-board::before{content:"PRODUCT ≠ FEATURE";position:absolute;right:36px;top:-19px;background:var(--yellow);color:var(--ink);padding:8px 13px;font:900 11px ui-monospace,monospace;transform:rotate(3deg)}
+    .approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+    .step{position:relative;padding-top:48px}
+    .step-num{position:absolute;top:0;left:0;font:italic 500 42px Georgia;color:#f0d873}
+    .step h3{margin:4px 0 9px;font:500 23px Georgia,"Songti SC",serif}
+    .step p{margin:0;color:rgba(255,255,255,.7);font-size:14px}
+    .principle{margin:48px 0 0;padding-top:26px;border-top:1px solid rgba(255,255,255,.22);display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .principle blockquote{margin:0;font:italic 500 clamp(22px,3vw,34px)/1.35 Georgia;max-width:720px}
+    .principle span{max-width:230px;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase}
+
+    .about-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:64px;align-items:start}
+    .about-card{position:sticky;top:110px;padding:22px 22px 30px;transform:rotate(-1deg)}
+    .about-card .mini-portrait{height:310px;overflow:hidden;background:#e7ddd0}
+    .about-card img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+    .about-card h3{margin:22px 0 6px;font:600 31px Georgia,"Songti SC",serif}
+    .about-card p{margin:0;color:var(--muted)}
+    .timeline{border-left:2px solid var(--ink);padding-left:36px}
+    .time-item{position:relative;padding:0 0 48px}
+    .time-item::before{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--ink);background:var(--paper);border-radius:50%;left:-44px;top:5px}
+    .time-item:last-child{padding-bottom:0}
+    .time-item time{font:800 12px ui-monospace,monospace;color:var(--coral)}
+    .time-item h3{margin:7px 0 4px;font:600 23px Georgia,"Songti SC",serif}
+    .time-item p{margin:0;color:var(--muted)}
+
+    .footer{position:relative;margin-top:80px;padding:78px 0 35px;background:var(--ink);color:var(--paper)}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
+    .footer h2{margin:0 0 22px;font:500 clamp(38px,6vw,72px)/1 Georgia,"Songti SC",serif;letter-spacing:-.04em}
+    .footer p{color:rgba(255,255,255,.65);max-width:600px}
+    .footer-links{display:flex;justify-content:flex-end;gap:14px;flex-wrap:wrap}
+    .footer .btn{border-color:var(--paper)}
+    .footer .btn:first-child{background:var(--paper);color:var(--ink)}
+    .footer .btn.secondary{color:var(--paper)}
+    .copyright{margin-top:60px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.44);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+    .footer-guide{position:absolute;right:6%;bottom:0;width:150px;opacity:.13;filter:grayscale(1);pointer-events:none}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:64px;padding-top:65px}.portrait-wrap{justify-self:center;width:min(78vw,390px)}
+      .section-head{grid-template-columns:1fr}.section-num{font-size:70px}.project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .project-visual{order:0}.project-visual{min-height:430px}.details{grid-template-columns:repeat(2,1fr)}.project.open .details{max-height:800px}
+      .approach-grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.about-card{position:relative;top:auto;max-width:480px;margin:auto}.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.footer-guide{display:none}
+    }
+    @media (max-width:640px){
+      .wrap{width:min(calc(100% - 28px),var(--max))}.nav-inner{height:64px}.menu-btn{display:block}.nav-links{position:absolute;top:64px;left:0;right:0;padding:20px;display:none;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-links a{padding:8px}.resume-link{text-align:center}
+      .hero{min-height:auto;padding:58px 0 80px}.hero h1{font-size:clamp(46px,15vw,74px)}.hero-note{display:none}.sticker{right:-9px}.pin{left:-8px}
+      .section{padding:82px 0}.project-copy{padding:38px 25px 34px}.project-visual{padding:34px 24px;min-height:330px}.evidence{grid-template-columns:1fr}.evidence div{display:flex;gap:12px;align-items:baseline}.evidence strong{min-width:92px}.details{grid-template-columns:1fr}.project.open .details{max-height:1200px}
+      .approach-board{padding:44px 26px}.approach-grid{grid-template-columns:1fr}.principle{align-items:flex-start;flex-direction:column}.copyright{flex-direction:column}.footer{padding-top:62px}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="page">
+    <nav class="nav" aria-label="主要导航">
+      <div class="nav-inner wrap">
+        <a class="brand" href="#top"><span class="brand-mark">Q</span><span>QIAN CHEN · AI PM</span></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">菜单</button>
+        <div class="nav-links" id="nav-links">
+          <a href="#work">项目</a><a href="#approach">方法</a><a href="#about">关于我</a>
+          <a class="resume-link" href="assets/qian-chen-resume.pdf" download>下载简历 ↘</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main">
+      <header class="hero wrap" id="top">
+        <div class="hero-copy reveal">
+          <span class="hero-kicker">AI PRODUCT FIELD NOTES · 2026</span>
+          <h1 class="serif">你好，我是钱宸。<br>我把复杂决策做成<br><em>可验证的 AI 产品。</em></h1>
+          <p class="hero-lead">从空间设计走向 AI 产品，我擅长把领域知识拆成<strong>可解释的 Agent 工作流</strong>，并用评测、证据与人工确认，让生成结果真正可用。</p>
+          <div class="tags" aria-label="核心能力">
+            <span class="tag">AGENT / WORKFLOW</span><span class="tag">RAG</span><span class="tag">EVALUATION</span><span class="tag">SPATIAL AI</span><span class="tag">VIBE CODING</span>
+          </div>
+          <div class="actions"><a class="btn" href="#work">查看精选项目 <span>↓</span></a><a class="btn secondary" href="assets/qian-chen-resume.pdf" target="_blank" rel="noopener">打开简历</a></div>
+          <div class="hero-note scribble">这是我的产品笔记，不是功能清单</div>
+        </div>
+        <div class="portrait-wrap reveal">
+          <div class="portrait-card"><span class="tape"></span><img src="assets/chenchen-smile-avatar.png" alt="钱宸的水彩个人 IP 形象"><div class="portrait-caption"><b class="serif">钱宸 Qian Chen</b><span>AI PRODUCT MANAGER</span></div></div>
+          <div class="sticker">OPEN TO<br>WORK!</div><div class="pin scribble">空间设计背景<br>×<br>AI 产品判断</div>
+        </div>
+      </header>
+
+      <section class="section wrap" id="work">
+        <div class="section-head reveal"><div class="section-num">01</div><div class="section-title"><span class="eyebrow">Selected work / 精选项目</span><h2>不只展示做了什么，<br>更展示为什么这样做。</h2><p class="section-intro">三个项目分别回答：如何让 AI 参与高风险空间决策、如何约束生成式设计结果，以及如何把分散信息组织成可执行营销方案。</p></div></div>
+        <div class="work-list">
+          <article class="project massing paper reveal">
+            <div class="project-visual"><span class="project-index">01</span><figure class="project-shot"><span class="tape"></span><img src="assets/massing.png" alt="强排方案决策 Agent 的多方案推演界面"><figcaption>SCREEN 02 · 方案推演与指标对比</figcaption></figure></div>
+            <div class="project-copy"><div class="project-meta"><span class="meta">Spatial AI</span><span class="meta">Agent + Rules</span><span class="meta">Decision Support</span></div><h3>强排方案决策 Agent</h3><p class="project-question">如何把规划条件、设计规则与经验判断，转成有证据、可追溯的方案推演流程？</p><div class="project-insight">关键判断：硬规则交给规则引擎，非结构化材料交给 RAG + LLM；缺失字段不让模型猜，而是进入人工确认。</div><div class="evidence"><div><strong>3-stage</strong><span>约束提取 → 方案推演 → 智能预审</span></div><div><strong>HITL</strong><span>高风险与缺失字段进入人工确认</span></div><div><strong>97→100</strong><span>项目记录中的四阶段评测得分</span></div></div><div class="project-actions"><a class="text-link" href="https://massingstudio.vercel.app/projects" target="_blank" rel="noopener">体验线上原型 ↗</a><button class="details-toggle" type="button" aria-expanded="false">展开项目摘要 +</button></div></div>
+            <div class="details" aria-hidden="true"><div class="detail"><b>用户与场景</b><p>建筑设计团队在强排前期需要快速读取多源规划条件，并比较多个可行方案。</p></div><div class="detail"><b>产品决策</b><p>保留原文证据与置信度；硬规则优先；模型无法确认的信息不进入自动决策。</p></div><div class="detail"><b>我的产出</b><p>问题定义、PRD、三阶段工作流、规则与知识库分工、评测框架和交互原型。</p></div><div class="detail"><b>边界说明</b><p>当前展示为项目原型与评测记录，业务效率与准确率仍需在真实团队中持续验证。</p></div></div>
+          </article>
+
+          <article class="project garden paper reveal">
+            <div class="project-visual"><span class="project-index">02</span><figure class="project-shot"><span class="tape"></span><img src="assets/garden.png" alt="GardenWise AI 的方案效果与设计对话界面"><figcaption>SCREEN 07 · 设计对话与方案渲染</figcaption></figure></div>
+            <div class="project-copy"><div class="project-meta"><span class="meta">Generative AI</span><span class="meta">RAG</span><span class="meta">Landscape</span></div><h3>GardenWise AI</h3><p class="project-question">如何让 AI 生成的节水花园方案，不只“看起来好看”，还满足植物适生性与覆盖率要求？</p><div class="project-insight">关键判断：把视觉生成放在植物推荐与覆盖率预评估之后，用结构化植物清单约束最终渲染。</div><div class="evidence"><div><strong>10a</strong><span>聚焦北美湾区 USDA Zone 10a</span></div><div><strong>73.7→100%</strong><span>可观察评测通过率（项目记录）</span></div><div><strong>73.1→96.2%</strong><span>覆盖率评测结果（项目记录）</span></div></div><div class="project-actions"><a class="text-link" href="https://gardenwise-ai.vercel.app" target="_blank" rel="noopener">体验线上原型 ↗</a><button class="details-toggle" type="button" aria-expanded="false">展开项目摘要 +</button></div></div>
+            <div class="details" aria-hidden="true"><div class="detail"><b>用户与场景</b><p>湾区景观设计师需要把场地、风格、植物适生性与节水规则快速组合成早期方案。</p></div><div class="detail"><b>产品决策</b><p>先生成可核查的植物清单和覆盖率，再生成视觉方案；支持通过对话继续修改。</p></div><div class="detail"><b>我的产出</b><p>需求定义、竞品研究、植物数据库、覆盖率逻辑、AI 对话、原型与评测迭代。</p></div><div class="detail"><b>边界说明</b><p>定位为概念设计与预评估工具，不替代施工图、专业审图与最终植物适生性确认。</p></div></div>
+          </article>
+
+          <article class="project marketing paper reveal">
+            <div class="project-visual"><span class="project-index">03</span><figure class="project-shot"><span class="tape"></span><img src="assets/marketing.png" alt="智能营销方案助手的方案生成工作流界面"><figcaption>SCREEN 04 · 多方案生成与证据评分</figcaption></figure></div>
+            <div class="project-copy"><div class="project-meta"><span class="meta">Marketing AI</span><span class="meta">RAG</span><span class="meta">Workflow</span></div><h3>智能营销方案助手</h3><p class="project-question">当业务数据、竞品信息和用户洞察彼此分散时，如何让 AI 输出有依据、能落地的 Campaign？</p><div class="project-insight">关键判断：不做“一键生成方案”，而是把机会判断和方案选择拆成两个有人参与的决策节点。</div><div class="evidence"><div><strong>50</strong><span>测试集规模（项目记录）</span></div><div><strong>77.1→83.3</strong><span>平均评测分数</span></div><div><strong>60→100%</strong><span>评测通过率</span></div></div><div class="project-actions"><a class="text-link" href="https://marketing-opportunity-prototype.vercel.app/" target="_blank" rel="noopener">体验线上原型 ↗</a><button class="details-toggle" type="button" aria-expanded="false">展开项目摘要 +</button></div></div>
+            <div class="details" aria-hidden="true"><div class="detail"><b>用户与场景</b><p>品牌营销与 Campaign 策划人员需要从多类资料中找到可信机会，并转成执行方案。</p></div><div class="detail"><b>产品决策</b><p>用 RAG 建立证据链，用评分器与校验器控制质量，在机会与策略节点保留人工选择。</p></div><div class="detail"><b>我的产出</b><p>用户与竞品调研、Agent 工作流、PRD、原型、50 条测试集和坏案例迭代。</p></div><div class="detail"><b>边界说明</b><p>评测证明输出质量改进；真实 Campaign 转化效果仍需在上线业务中进一步验证。</p></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap" id="approach">
+        <div class="section-head reveal"><div class="section-num">02</div><div class="section-title"><span class="eyebrow">How I work / 产品方法</span><h2>把模型能力，翻译成<br>用户敢用的产品机制。</h2></div></div>
+        <div class="approach-board reveal"><div class="approach-grid"><div class="step"><span class="step-num">01</span><h3>Define</h3><p>先定位高频、高成本或高风险的决策任务，再判断 AI 是否真的必要。</p></div><div class="step"><span class="step-num">02</span><h3>Design</h3><p>把复杂任务拆成输入、规则、检索、模型、工具与人工确认组成的工作流。</p></div><div class="step"><span class="step-num">03</span><h3>Evaluate</h3><p>建立测试集、成功标准和坏案例分类，区分体验问题与模型问题。</p></div><div class="step"><span class="step-num">04</span><h3>Deliver</h3><p>用原型验证交互与价值，再围绕真实使用数据持续缩小不确定性。</p></div></div><div class="principle"><blockquote>“生成不是终点。能解释、能验证、知道何时交还给人，才是产品。”</blockquote><span>My working principle — evidence before confidence</span></div></div>
+      </section>
+
+      <section class="section wrap" id="about">
+        <div class="section-head reveal"><div class="section-num">03</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从设计复杂空间，<br>到设计复杂决策。</h2></div></div>
+        <div class="about-grid"><aside class="about-card paper reveal"><span class="tape"></span><div class="mini-portrait"><img src="assets/chenchen-closed-fullbody.png" alt="钱宸的水彩全身个人 IP 形象"></div><h3>钱宸 · Qian Chen</h3><p>AI 产品经理 / 空间与景观设计背景<br>Agent · RAG · 评测 · 原型实现</p></aside><div class="timeline reveal"><div class="time-item"><time>2026.06 — PRESENT</time><h3>她易景观设计咨询 · AI 产品经理</h3><p>围绕北美节水景观场景，将植物知识、覆盖率规则与生成式设计整合为可体验产品。</p></div><div class="time-item"><time>2025.11 — 2026.05</time><h3>深圳逐界科技 · AI 产品经理</h3><p>探索空间设计与规划规则中的 AI 决策支持，设计多源材料解析、方案推演与预审流程。</p></div><div class="time-item"><time>2024.11 — 2025.01</time><h3>广东太古可口可乐 · 品牌营销 / 产品实习</h3><p>从真实营销任务出发，构建有证据链、可评测的营销机会与方案生成助手。</p></div><div class="time-item"><time>2022.09 — 2025.10</time><h3>Politecnico di Milano · 景观遗产硕士</h3><p>项目管理、城市数据可视化、数据库管理与 UX，为跨学科 AI 产品工作打下基础。</p></div><div class="time-item"><time>2017.09 — 2021.06</time><h3>National Taiwan Normal University · 景观建筑学士</h3><p>GPA 前 10%；形成空间推理、视觉表达与复杂约束下的方案设计能力。</p></div></div></div>
+      </section>
+    </main>
+
+    <footer class="footer"><img class="footer-guide" src="assets/chenchen-closed-fullbody.png" alt=""><div class="wrap"><div class="footer-grid"><div><span class="eyebrow">One more note</span><h2>想聊聊 AI 产品、<br>空间智能，或下一次机会？</h2><p>这版作品集先呈现核心叙事与视觉骨架。项目详情页、英文版本和更完整的评测证据可以在下一轮继续补齐。</p></div><div class="footer-links"><a class="btn" href="assets/qian-chen-resume.pdf" download>下载简历 ↓</a><a class="btn secondary" href="#top">回到顶部 ↑</a></div></div><div class="copyright"><span>QIAN CHEN · AI PRODUCT PORTFOLIO</span><span>DESIGNED AS FIELD NOTES · 2026</span></div></div></footer>
+  </div>
+  <script>
+    const menuButton=document.querySelector('.menu-btn');
+    const navLinks=document.querySelector('#nav-links');
+    menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
+    navLinks.addEventListener('click',event=>{if(event.target.matches('a')){navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}});
+
+    document.querySelectorAll('.details-toggle').forEach(button=>{
+      button.addEventListener('click',()=>{
+        const project=button.closest('.project');
+        const panel=project.querySelector('.details');
+        const open=project.classList.toggle('open');
+        button.setAttribute('aria-expanded',String(open));
+        button.textContent=open?'收起项目摘要 −':'展开项目摘要 +';
+        panel.setAttribute('aria-hidden',String(!open));
+      });
+    });
+
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+    else{
+      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -50px'});
+      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    }
+  </script>
+</body>
+</html>
