@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="可编辑的 AI 工作流搭建页面。"><title>工作流搭建｜Qian Chen AI Learning Lab</title><link rel="stylesheet" href="lab.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="从项目文件夹进入真实 Coze 工作流，在无限画布中查看节点、连线、Prompt 与输入输出。">
+  <title>工作流搭建｜Qian Chen AI Learning Lab</title>
+  <link rel="stylesheet" href="lab.css">
+</head>
 <body>
   <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html#lab"><span class="brand-mark">Q</span><span>QIAN CHEN · AI LEARNING LAB</span></a><div class="nav-actions"><a href="lab-skills.html">技能库</a><a class="back" href="index.html#lab">返回作品集 ↙</a></div></div></nav>
-  <header class="wrap hero"><div class="section-no">03</div><div><span class="eyebrow">Reusable assets / Workflow</span><h1>工作流搭建</h1><p class="lead">从空白流程开始添加节点。节点会按顺序排列，并保存在当前浏览器中。</p><div class="lab-nav"><a class="chip" href="lab-skills.html">技能库</a><a class="chip" href="lab-spec-kit.html">AI 场景规格包</a><a class="chip active" href="lab-workflows.html">工作流搭建</a><a class="chip" href="lab-evaluation.html">评测集</a><a class="chip" href="idea-garden.html">Idea Garden</a></div></div></header>
-  <main class="wrap"><div class="workspace">
-    <aside class="toolbox paper"><span class="eyebrow">Add a node</span><h2>添加流程节点</h2><p>写下节点名称和它负责的任务。</p><form id="node-form"><div class="field"><label for="node-name">节点名称</label><input id="node-name" required placeholder="例如：输入解析"></div><div class="field"><label for="node-note">节点说明</label><textarea id="node-note" placeholder="这个节点做什么？"></textarea></div><button class="btn" type="submit">添加节点 ＋</button></form><div class="button-row" style="margin-top:15px"><button class="btn light" id="remove-last" type="button">撤回最后一个</button><button class="btn danger" id="clear" type="button">清空流程</button></div></aside>
-    <section class="canvas paper"><div class="panel-title"><div><span class="eyebrow">Workflow canvas</span><h2>空白工作流</h2></div></div><div class="flow-canvas" id="flow" aria-live="polite"></div></section>
-  </div></main>
+  <header class="wrap hero workflow-hero">
+    <div class="section-no">03</div>
+    <div><span class="eyebrow">Build log / Coze workflows</span><h1>工作流搭建</h1><p class="lead">不是只展示最终结果，而是打开真实工作流，查看问题如何被拆成节点、分支、人工确认与可追溯输出。</p><div class="lab-nav"><a class="chip" href="lab-skills.html">技能库</a><a class="chip" href="lab-spec-kit.html">AI 场景规格包</a><a class="chip active" href="lab-workflows.html">工作流搭建</a><a class="chip" href="lab-evaluation.html">评测集</a><a class="chip" href="idea-garden.html">Idea Garden</a></div></div>
+  </header>
+  <main class="wrap workflow-main">
+    <section id="folder-view" aria-labelledby="folder-heading">
+      <div class="workflow-section-head"><div><span class="eyebrow">Project folders / 03</span><h2 id="folder-heading">选择一个项目文件夹</h2></div><p>每个文件夹保留项目内的 workflow 关系。进入后可分别查看搭建细节。</p></div>
+      <div class="folder-grid" id="folder-grid"></div>
+    </section>
+    <section id="workflow-view" hidden aria-labelledby="workflow-heading">
+      <button class="text-back" id="back-folders" type="button">← 返回项目文件夹</button>
+      <div class="workflow-section-head"><div><span class="eyebrow" id="folder-kicker">Project folder</span><h2 id="workflow-heading">项目 Workflows</h2></div><p id="folder-description"></p></div>
+      <div class="workflow-card-grid" id="workflow-grid"></div>
+    </section>
+    <section id="canvas-view" hidden aria-labelledby="canvas-heading">
+      <div class="canvas-topbar"><button class="text-back" id="back-workflows" type="button">← 返回当前项目</button><div class="canvas-actions" aria-label="画布控制"><button type="button" id="zoom-out" aria-label="缩小画布">−</button><button type="button" id="fit-view">适应画布</button><button type="button" id="zoom-in" aria-label="放大画布">＋</button></div></div>
+      <div class="canvas-intro"><div><span class="eyebrow" id="canvas-kicker">Workflow canvas</span><h2 id="canvas-heading">Workflow</h2><p id="canvas-description"></p></div><div class="canvas-stats" id="canvas-stats"></div></div>
+      <div class="workflow-stage">
+        <div class="infinite-viewport" id="viewport" aria-label="可拖拽缩放的工作流画布"><div class="infinite-world" id="world"><svg id="edge-layer" aria-hidden="true"></svg><div id="node-layer"></div></div><div class="canvas-hint">拖动画布 · 滚轮缩放 · 点击节点查看细节</div></div>
+        <aside class="node-inspector" id="inspector" aria-live="polite"><div class="inspector-empty"><span class="inspector-cross">＋</span><strong>选择一个节点</strong><p>查看节点说明、模型参数、输入输出，以及 Prompt 或代码摘要。</p></div></aside>
+      </div>
+      <div class="workflow-legend" aria-label="节点类型图例"><span><i class="legend-dot type-llm"></i>LLM</span><span><i class="legend-dot type-code"></i>代码 / 规则</span><span><i class="legend-dot type-knowledge"></i>知识库</span><span><i class="legend-dot type-question"></i>人工确认</span><span><i class="legend-dot type-start"></i>输入 / 输出</span></div>
+    </section>
+  </main>
   <footer class="footer"><div class="wrap footer-inner"><span>QIAN CHEN · AI LEARNING LAB</span><a href="index.html#lab">BACK TO PORTFOLIO ↗</a></div></footer>
-  <script>
-    const key='qian-ai-lab-workflow-v1',form=document.querySelector('#node-form'),flow=document.querySelector('#flow');let nodes=JSON.parse(localStorage.getItem(key)||'[]');
-    function save(){localStorage.setItem(key,JSON.stringify(nodes))}function render(){if(!nodes.length){flow.innerHTML='<div class="empty" style="width:100%;min-height:270px"><div><span class="empty-mark">＋</span><strong>还没有节点</strong><span>从左侧添加第一个流程节点</span></div></div>';return}flow.innerHTML=nodes.map((node,i)=>`${i?'<span class="flow-arrow" aria-hidden="true">→</span>':''}<div class="flow-node"><b>${escapeHTML(node.name)}</b><small>${escapeHTML(node.note||'—')}</small></div>`).join('')}
-    function escapeHTML(value){const el=document.createElement('div');el.textContent=value;return el.innerHTML}
-    form.addEventListener('submit',event=>{event.preventDefault();nodes.push({name:form.elements['node-name'].value.trim(),note:form.elements['node-note'].value.trim()});save();render();form.reset()});
-    document.querySelector('#remove-last').addEventListener('click',()=>{nodes.pop();save();render()});document.querySelector('#clear').addEventListener('click',()=>{nodes=[];localStorage.removeItem(key);render()});render();
-  </script>
-</body></html>
+  <script src="workflow-data.js?v=2"></script>
+  <script src="workflow-explorer.js?v=2"></script>
+</body>
+</html>
