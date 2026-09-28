@@ -137,6 +137,49 @@
     .garden{--project:var(--green);--project-soft:var(--green-soft);--tilt:2deg}
     .marketing{--project:var(--coral);--project-soft:var(--coral-soft);--tilt:-1.5deg}
 
+    .lab-board{position:relative;padding:48px;background:rgba(255,250,240,.96);border:1.5px solid var(--ink);box-shadow:8px 9px 0 var(--blue),var(--shadow)}
+    .lab-board::before{content:"AI ASSET SHELF";position:absolute;top:-18px;right:42px;padding:8px 13px;background:var(--yellow);border:1px solid var(--ink);font:900 11px ui-monospace,monospace;letter-spacing:.08em;transform:rotate(2deg)}
+    .lab-board-head{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:end;padding-bottom:30px;border-bottom:1px dashed var(--line)}
+    .lab-board-head h3{margin:8px 0 0;font:600 clamp(28px,3.4vw,43px)/1.12 Georgia,"Songti SC",serif;letter-spacing:-.025em}
+    .lab-board-head p{margin:0;color:var(--muted);font-size:15px}
+    .lab-label{font:850 11px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+    .lab-assets{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+    .lab-asset{position:relative;min-height:250px;padding:29px 28px 24px;border:1px solid var(--line);background:rgba(255,255,255,.34)}
+    .lab-asset::after{content:attr(data-index);position:absolute;right:22px;top:17px;font:italic 600 38px Georgia;color:rgba(32,33,30,.16)}
+    .lab-asset-type{display:inline-block;padding:5px 8px;border:1px solid var(--ink);font:850 10px ui-monospace,monospace;letter-spacing:.09em;background:var(--paper-2)}
+    .lab-asset h4{margin:18px 0 7px;font:600 25px Georgia,"Songti SC",serif}
+    .lab-asset > p{margin:0;color:var(--muted);font-size:14px;max-width:88%}
+    .lab-asset ul{list-style:none;margin:20px 0 0;padding:0;border-top:1px dashed var(--line)}
+    .lab-asset li{position:relative;padding:9px 0 9px 17px;border-bottom:1px solid rgba(207,197,181,.62);font-size:13px;color:#484944}
+    .lab-asset li::before{content:"";position:absolute;left:1px;top:16px;width:7px;height:7px;background:var(--blue);transform:rotate(45deg)}
+    .lab-asset.eval{background:linear-gradient(135deg,rgba(220,229,255,.72),rgba(255,250,240,.76))}
+    .eval-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+    .eval-mini div{padding-top:10px;border-top:1px solid var(--blue)}
+    .eval-mini strong{display:block;font:700 19px Georgia;color:var(--blue)}
+    .eval-mini span{display:block;margin-top:4px;font-size:9px;line-height:1.35;color:var(--muted)}
+    .workflow-shelf{margin-top:28px;padding-top:28px;border-top:1px dashed var(--line)}
+    .workflow-shelf-head{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-bottom:18px}
+    .workflow-shelf-head h4{margin:0;font:600 25px Georgia,"Songti SC",serif}
+    .workflow-shelf-head span{font:800 10px ui-monospace,monospace;color:var(--muted);letter-spacing:.08em}
+    .workflow-row{display:grid;grid-template-columns:145px 1fr;gap:18px;align-items:center;padding:15px 0;border-top:1px solid rgba(207,197,181,.72)}
+    .workflow-row > strong{font:700 12px ui-monospace,monospace;color:var(--blue)}
+    .workflow-steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .workflow-steps span{padding:6px 9px;border:1px solid var(--line);background:var(--paper-2);font-size:11px;font-weight:700}
+    .workflow-steps i{font-style:normal;color:var(--blue);font-weight:900}
+
+    .idea-garden{display:grid;grid-template-columns:.68fr 1.32fr;gap:34px;margin-top:48px;padding:40px;border:1px dashed rgba(32,33,30,.4);background:rgba(255,250,240,.5)}
+    .idea-garden-copy{align-self:center;padding-right:10px}
+    .idea-garden-copy h3{margin:8px 0 15px;font:600 clamp(31px,4vw,48px)/1.06 Georgia,"Songti SC",serif}
+    .idea-garden-copy p{margin:0;color:var(--muted);font-size:15px}
+    .garden-stamp{display:inline-block;margin-top:25px;padding:8px 11px;border:2px solid var(--blue);color:var(--blue);font:900 10px ui-monospace,monospace;letter-spacing:.08em;transform:rotate(-2deg)}
+    .sticky-wall{display:grid;grid-template-columns:repeat(2,1fr);gap:17px;align-items:start}
+    .idea-note{position:relative;min-height:172px;padding:29px 24px 22px;background:#f8e7a2;border:1px solid rgba(90,78,40,.24);box-shadow:5px 7px 0 rgba(32,33,30,.12);transform:rotate(var(--note-tilt))}
+    .idea-note:nth-child(even){background:var(--paper-2);border-top:5px solid var(--blue)}
+    .idea-note::before{content:"";position:absolute;top:12px;right:14px;width:9px;height:9px;border-radius:50%;background:var(--coral);box-shadow:1px 2px 0 rgba(32,33,30,.3)}
+    .idea-note small{display:block;margin-bottom:15px;font:850 9px ui-monospace,monospace;letter-spacing:.1em;color:#5d584a}
+    .idea-note p{margin:0;font:600 17px/1.55 Georgia,"Songti SC",serif}
+    .idea-note:nth-child(1){--note-tilt:-1deg}.idea-note:nth-child(2){--note-tilt:.8deg}.idea-note:nth-child(3){--note-tilt:.6deg}.idea-note:nth-child(4){--note-tilt:-.7deg}
+
     .approach-board{position:relative;padding:55px 48px;background:#25332b;color:#f9f3e9;box-shadow:var(--shadow);transform:rotate(-.2deg)}
     .approach-board::before{content:"PRODUCT ≠ FEATURE";position:absolute;right:36px;top:-19px;background:var(--yellow);color:var(--ink);padding:8px 13px;font:900 11px ui-monospace,monospace;transform:rotate(3deg)}
     .approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
@@ -215,13 +258,13 @@
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;gap:64px;padding-top:65px}.portrait-wrap{justify-self:center;width:min(78vw,390px)}
       .section-head{grid-template-columns:1fr}.section-num{font-size:70px}.project{grid-template-columns:1fr}.project-visual{min-height:430px}.details{grid-template-columns:repeat(2,1fr)}.project.open .details{max-height:800px}
-      .approach-grid{grid-template-columns:repeat(2,1fr)}.advantages-grid{grid-template-columns:1fr}.advantage-card:nth-child(5){grid-column:auto}.about-grid{grid-template-columns:1fr}.about-card{position:relative;top:auto;max-width:480px;margin:auto}.skill-row{grid-template-columns:180px 1fr 72px}.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.contact-panel{grid-template-columns:1fr 1fr}.contact-heading{grid-column:1/-1}.footer-guide{display:none}
+      .lab-board-head{grid-template-columns:1fr}.idea-garden{grid-template-columns:1fr}.approach-grid{grid-template-columns:repeat(2,1fr)}.advantages-grid{grid-template-columns:1fr}.advantage-card:nth-child(5){grid-column:auto}.about-grid{grid-template-columns:1fr}.about-card{position:relative;top:auto;max-width:480px;margin:auto}.skill-row{grid-template-columns:180px 1fr 72px}.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.contact-panel{grid-template-columns:1fr 1fr}.contact-heading{grid-column:1/-1}.footer-guide{display:none}
     }
     @media (max-width:640px){
       .wrap{width:min(calc(100% - 28px),var(--max))}.nav-inner{height:64px}.menu-btn{display:block}.nav-links{position:absolute;top:64px;left:0;right:0;padding:20px;display:none;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-links a{padding:8px}.resume-link{text-align:center}
       .hero{min-height:auto;padding:58px 0 80px}.hero h1{font-size:clamp(43px,13vw,68px)}.hero h1 .hello{font-size:.7em}.hero-note{display:none}.sticker{right:-9px}.pin{left:-6px;bottom:92px;width:154px}
       .section{padding:82px 0}.project-copy{padding:38px 25px 34px}.project-visual{padding:34px 24px;min-height:330px}.prototype-cta{right:24px;bottom:22px;padding:8px 10px;font-size:10px}.evidence{grid-template-columns:1fr}.evidence div{display:flex;gap:12px;align-items:baseline}.evidence strong{min-width:92px}.details{grid-template-columns:1fr}.project.open .details{max-height:1200px}
-      .approach-board{padding:44px 26px}.approach-grid{grid-template-columns:1fr}.principle{align-items:flex-start;flex-direction:column}.advantage-card{padding:29px 25px}.skills-board{padding:32px 22px}.skills-note{flex-direction:column}.skill-row{grid-template-columns:1fr 72px;gap:10px}.skill-meter{grid-column:1/-1;grid-row:2}.skill-score{grid-column:2;grid-row:1}.skill-cert{grid-template-columns:1fr}.contact-panel{grid-template-columns:1fr}.contact-heading{grid-column:auto}.contact-item{padding:16px}.copyright{flex-direction:column}.footer{padding-top:62px}
+      .lab-board{padding:38px 22px;box-shadow:5px 6px 0 var(--blue),var(--shadow)}.lab-board::before{right:20px}.lab-assets{grid-template-columns:1fr}.workflow-row{grid-template-columns:1fr}.idea-garden{padding:30px 20px}.sticky-wall{grid-template-columns:1fr}.idea-note{min-height:148px}.eval-mini{grid-template-columns:1fr}.approach-board{padding:44px 26px}.approach-grid{grid-template-columns:1fr}.principle{align-items:flex-start;flex-direction:column}.advantage-card{padding:29px 25px}.skills-board{padding:32px 22px}.skills-note{flex-direction:column}.skill-row{grid-template-columns:1fr 72px;gap:10px}.skill-meter{grid-column:1/-1;grid-row:2}.skill-score{grid-column:2;grid-row:1}.skill-cert{grid-template-columns:1fr}.contact-panel{grid-template-columns:1fr}.contact-heading{grid-column:auto}.contact-item{padding:16px}.copyright{flex-direction:column}.footer{padding-top:62px}
     }
     @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
@@ -234,7 +277,7 @@
         <a class="brand" href="#top"><span class="brand-mark">Q</span><span>QIAN CHEN · AI PM</span></a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">菜单</button>
         <div class="nav-links" id="nav-links">
-          <a href="#work">项目</a><a href="#approach">方法</a><a href="#about">关于我</a>
+          <a href="#work">项目</a><a href="#lab">AI Lab</a><a href="#approach">方法</a><a href="#about">关于我</a>
           <a class="resume-link" href="assets/qian-chen-resume.pdf" download>下载简历 ↘</a>
         </div>
       </div>
@@ -282,13 +325,45 @@
         </div>
       </section>
 
+      <section class="section wrap" id="lab">
+        <div class="section-head reveal"><div class="section-num">02</div><div class="section-title"><span class="eyebrow">AI Learning Lab / 学习实验室</span><h2>把项目经验，<br>做成可复用资产。</h2><p class="section-intro">这里收集我在跨领域 AI 场景中形成的 Skills、Workflows、Spec Kit 和评测集，也保留尚待验证的需求观察。</p></div></div>
+
+        <div class="lab-board reveal">
+          <div class="lab-board-head"><div><span class="lab-label">Reusable assets / 可复用资产</span><h3>下一次遇到相似问题，不必从空白页开始。</h3></div><p>这些资产来自智能营销、空间强排与节水景观项目。它们既是工作方法，也是后续项目可以直接复用和继续迭代的起点。</p></div>
+
+          <div class="lab-assets">
+            <article class="lab-asset" data-index="01"><span class="lab-asset-type">SKILLS</span><h4>领域任务技能库</h4><p>把项目中反复出现的判断与执行动作，整理成可以组合的技能单元。</p><ul><li>营销证据检索与机会归纳</li><li>规划条件提取与冲突标记</li><li>Zone 10a 植物筛选与覆盖率预评估</li></ul></article>
+            <article class="lab-asset" data-index="02"><span class="lab-asset-type">SPEC KIT</span><h4>复杂 AI 场景规格包</h4><p>在制作原型前，先把系统如何判断、何时交给人说清楚。</p><ul><li>用户任务与问题边界</li><li>输入来源与结构化字段</li><li>规则、RAG、模型与 HITL 分工</li><li>成功标准、异常与回退路径</li></ul></article>
+            <article class="lab-asset" data-index="03"><span class="lab-asset-type">WORKFLOW</span><h4>工作流模式</h4><p>把复杂任务拆成能够检查、替换和复盘的节点。</p><ul><li>先给证据，再进入生成</li><li>确定性规则与生成模型分工</li><li>缺失信息进入人工确认</li></ul></article>
+            <article class="lab-asset eval" data-index="04"><span class="lab-asset-type">EVALUATION SET</span><h4>项目评测集</h4><p>用项目记录检验工作流改动是否真的改善结果。</p><div class="eval-mini"><div><strong>50 条</strong><span>营销测试集</span></div><div><strong>97→100</strong><span>强排四阶段得分</span></div><div><strong>73.7→100%</strong><span>花园可观察通过率</span></div></div></article>
+          </div>
+
+          <div class="workflow-shelf">
+            <div class="workflow-shelf-head"><h4>Workflow map</h4><span>FROM PROJECT NOTES · ITERABLE</span></div>
+            <div class="workflow-row"><strong>MARKETING AI</strong><div class="workflow-steps"><span>资料检索</span><i>→</i><span>机会判断</span><i>→</i><span>人工选择</span><i>→</i><span>方案生成</span><i>→</i><span>证据评分</span></div></div>
+            <div class="workflow-row"><strong>SPATIAL AI</strong><div class="workflow-steps"><span>约束提取</span><i>→</i><span>规则校验</span><i>→</i><span>方案推演</span><i>→</i><span>人工确认</span><i>→</i><span>智能预审</span></div></div>
+            <div class="workflow-row"><strong>GARDENWISE</strong><div class="workflow-steps"><span>场地需求</span><i>→</i><span>植物推荐</span><i>→</i><span>覆盖率预评估</span><i>→</i><span>视觉生成</span><i>→</i><span>对话修改</span></div></div>
+          </div>
+        </div>
+
+        <div class="idea-garden reveal">
+          <div class="idea-garden-copy"><span class="eyebrow">Idea Garden / 灵感花园</span><h3>从用户需求里，长出下一次产品探索。</h3><p>这里记录还没有被写成完整 PRD 的观察。它们可能来自一次访谈、一段工作流程，或一个反复出现的卡点。</p><span class="garden-stamp">NEEDS BEFORE FEATURES</span></div>
+          <div class="sticky-wall" aria-label="用户需求观察便签">
+            <article class="idea-note"><small>OBSERVED · MARKETING</small><p>营销人员需要先看清哪个机会值得做，再进入方案生成。证据要和结论一起出现。</p></article>
+            <article class="idea-note"><small>OBSERVED · PLANNING</small><p>规划条件来自不同文件。设计师需要看到规则出处、冲突位置和待确认字段。</p></article>
+            <article class="idea-note"><small>OBSERVED · LANDSCAPE</small><p>植物适生性和覆盖率如果到渲染后才检查，返工会很重。预评估应该前置。</p></article>
+            <article class="idea-note"><small>CROSS-DOMAIN · TO VERIFY</small><p>模型遇到缺失信息时，需要明确向用户提问，并保留清晰的人工接手点。</p></article>
+          </div>
+        </div>
+      </section>
+
       <section class="section wrap" id="approach">
-        <div class="section-head reveal"><div class="section-num">02</div><div class="section-title"><span class="eyebrow">How I work / 产品方法</span><h2>把模型能力做成<br>用户能够判断和控制的流程。</h2></div></div>
+        <div class="section-head reveal"><div class="section-num">03</div><div class="section-title"><span class="eyebrow">How I work / 产品方法</span><h2>把模型能力做成<br>用户能够判断和控制的流程。</h2></div></div>
         <div class="approach-board reveal"><div class="approach-grid"><div class="step"><span class="step-num">01</span><h3>Define</h3><p>先找到高频、高成本或高风险的决策任务，再判断是否需要 AI。</p></div><div class="step"><span class="step-num">02</span><h3>Design</h3><p>拆清输入、规则、检索、模型、工具和人工确认之间的关系。</p></div><div class="step"><span class="step-num">03</span><h3>Evaluate</h3><p>建立测试集与成功标准，再按坏案例定位体验问题和模型问题。</p></div><div class="step"><span class="step-num">04</span><h3>Deliver</h3><p>先用原型验证交互和价值，再根据真实使用数据继续调整。</p></div></div><div class="principle"><blockquote>“我更关心结果有没有依据、能不能复核，以及什么时候需要人工接手。”</blockquote><span>My working principle: evidence before confidence</span></div></div>
       </section>
 
       <section class="section wrap" id="advantages">
-        <div class="section-head reveal"><div class="section-num">03</div><div class="section-title"><span class="eyebrow">Why me / 个人优势</span><h2>把问题理清，<br>也把协作推进下去。</h2><p class="section-intro">这些经验来自结构化拆解、用户研究、内容运营、英语沟通和跨团队协作。</p></div></div>
+        <div class="section-head reveal"><div class="section-num">04</div><div class="section-title"><span class="eyebrow">Why me / 个人优势</span><h2>把问题理清，<br>也把协作推进下去。</h2><p class="section-intro">这些经验来自结构化拆解、用户研究、内容运营、英语沟通和跨团队协作。</p></div></div>
         <div class="advantages-grid">
           <article class="advantage-card reveal"><span class="advantage-label">STRUCTURE</span><span class="advantage-no">01</span><h3>把模糊任务拆成可执行路径</h3><p>我会先拆清目标、约束和执行步骤，再快速补齐所需知识，并用 AI 工具提高工作效率。</p></article>
           <article class="advantage-card reveal"><span class="advantage-label">0 → 1</span><span class="advantage-no">02</span><h3>从用户痛点走到产品落地</h3><p>我持续关注新的产品方法，参与过多条产品线的需求调研、痛点判断和从 0 到 1 落地。</p></article>
@@ -299,12 +374,12 @@
       </section>
 
       <section class="section wrap" id="about">
-        <div class="section-head reveal"><div class="section-num">04</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从空间设计出发，<br>解决复杂业务里的 AI 产品问题。</h2></div></div>
+        <div class="section-head reveal"><div class="section-num">05</div><div class="section-title"><span class="eyebrow">About / 关于我</span><h2>从空间设计出发，<br>解决复杂业务里的 AI 产品问题。</h2></div></div>
         <div class="about-grid"><aside class="about-card paper reveal"><span class="tape"></span><div class="mini-portrait"><img src="assets/chenchen-closed-fullbody.png" alt="钱宸的水彩全身个人 IP 形象"></div><h3>钱宸 · Qian Chen</h3><p>AI 产品经理 / 空间与景观设计背景<br>Agent · RAG · 评测 · 原型实现</p></aside><div class="timeline reveal"><div class="time-item"><time>2026.06 — PRESENT</time><h3>她易景观设计咨询 · AI 产品经理</h3><p>面向北美节水景观，把植物知识和覆盖率规则整理进生成式设计流程，并制作可交互原型。</p></div><div class="time-item"><time>2025.11 — 2026.05</time><h3>深圳逐界科技 · AI 产品经理</h3><p>围绕空间设计和规划规则，设计多源材料解析、方案推演和预审流程。</p></div><div class="time-item"><time>2024.11 — 2025.01</time><h3>广东太古可口可乐 · 品牌营销 / 产品实习</h3><p>根据真实营销任务，设计来源可追溯、结果可评测的营销机会与方案生成助手。</p></div><div class="time-item"><time>2022.09 — 2025.10</time><h3>米兰理工大学（QS 87） · Politecnico di Milano · 景观遗产硕士</h3><p>学习项目管理、城市数据可视化、数据库管理和 UX，为跨学科 AI 产品工作打下基础。</p></div><div class="time-item"><time>2022.03 — 2022.06</time><h3>AECOM 艾奕康设计与咨询（深圳）有限公司北京分公司（业内 500 强外企）· 景观设计实习生</h3><p>参与武汉二七滨江、合肥蔚来产业园、青岛石老人滨海等大型规划项目；运用 Rhino、Lumion、Enscape 与数据分析支持方案设计及跨团队迭代。</p></div><div class="time-item"><time>2017.09 — 2021.06</time><h3>台湾中原大学 · Chuang Yuan Christian University, Taiwan · 景观建筑学士</h3><p>GPA 前 10%。本科训练集中在空间推理、视觉表达和复杂约束下的方案设计。</p></div></div></div>
       </section>
 
       <section class="section wrap" id="skills">
-        <div class="section-head reveal"><div class="section-num">05</div><div class="section-title"><span class="eyebrow">Skill map / 技能汇总</span><h2>从产品判断到原型落地，<br>这是我的技能侧重点。</h2><p class="section-intro">以下分数是我根据现有项目经验做的五分制自评，用来说明能力侧重，不代表第三方认证。</p></div></div>
+        <div class="section-head reveal"><div class="section-num">06</div><div class="section-title"><span class="eyebrow">Skill map / 技能汇总</span><h2>从产品判断到原型落地，<br>这是我的技能侧重点。</h2><p class="section-intro">以下分数是我根据现有项目经验做的五分制自评，用来说明能力侧重，不代表第三方认证。</p></div></div>
         <div class="skills-board reveal">
           <div class="skills-note"><strong>SELF-ASSESSMENT · 5 POINT SCALE</strong><span>5 = 可独立负责并沉淀方法　4 = 可独立完成项目任务　3 = 可在项目中熟练使用</span></div>
           <div class="skills-list">
