@@ -3,11 +3,20 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="可编辑的 AI 产品评测集页面。"><title>评测集｜Qian Chen AI Learning Lab</title><link rel="stylesheet" href="lab.css"></head>
 <body>
   <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html#lab"><span class="brand-mark">Q</span><span>QIAN CHEN · AI LEARNING LAB</span></a><div class="nav-actions"><a href="lab-skills.html">技能库</a><a class="back" href="index.html#lab">返回作品集 ↙</a></div></div></nav>
-  <header class="wrap hero"><div class="section-no">04</div><div><span class="eyebrow">Reusable assets / Evaluation Set</span><h1>评测集</h1><p class="lead">用于记录新的测试样本、预期结果和实际结果。页面初始为空，内容保存在当前浏览器。</p><div class="lab-nav"><a class="chip" href="lab-skills.html">技能库</a><a class="chip" href="lab-spec-kit.html">AI 场景规格包</a><a class="chip" href="lab-workflows.html">工作流搭建</a><a class="chip active" href="lab-evaluation.html">评测集</a><a class="chip" href="idea-garden.html">Idea Garden</a></div></div></header>
-  <main class="wrap"><div class="workspace">
+  <header class="wrap hero"><div class="section-no">04</div><div><span class="eyebrow">Reusable assets / Evaluation Set</span><h1>评测集</h1><p class="lead">集中查看完整评测文档，也可以在下方工作台快速补充新的测试样本与结果。</p><div class="lab-nav"><a class="chip" href="lab-skills.html">技能库</a><a class="chip" href="lab-spec-kit.html">AI 场景规格包</a><a class="chip" href="lab-workflows.html">工作流搭建</a><a class="chip active" href="lab-evaluation.html">评测集</a><a class="chip" href="idea-garden.html">Idea Garden</a></div></div></header>
+  <main class="wrap">
+    <section class="eval-library paper" aria-labelledby="eval-library-title">
+      <div class="eval-library-head"><div><span class="eyebrow">Source files / Excel Online</span><h2 id="eval-library-title">完整评测文档</h2></div><p>通过 OneDrive 在线查看完整样本、预期结果与评测记录。下方工作台适合快速补充临时测试，内容仅保存在当前浏览器。</p></div>
+      <div class="eval-source-grid">
+        <a class="eval-source-card" href="https://1drv.ms/x/c/973af71ce08481ec/IQAIQLCaYaNAQ5l3ebbA8x-IAYo9uU3f1EjK8-h65yS7r40" target="_blank" rel="noopener noreferrer"><span class="eval-file-no">01</span><span class="eyebrow">OneDrive / Excel</span><h3>评测集文档 01</h3><p>打开网页版 Excel，查看第一份完整评测记录。</p><span class="eval-open">查看在线文档 ↗</span></a>
+        <a class="eval-source-card" href="https://1drv.ms/x/c/973af71ce08481ec/IQBYXn9TWCNGSZKn2IKHZ19-Aax8_gqOw-V-4RPi3xKIdXM" target="_blank" rel="noopener noreferrer"><span class="eval-file-no">02</span><span class="eyebrow">OneDrive / Excel</span><h3>评测集文档 02</h3><p>打开网页版 Excel，查看第二份完整评测记录。</p><span class="eval-open">查看在线文档 ↗</span></a>
+      </div>
+    </section>
+    <div class="workspace eval-workspace">
     <aside class="toolbox paper"><span class="eyebrow">New test case</span><h2>新增样本</h2><form id="case-form"><div class="field"><label for="case-input">测试输入</label><textarea id="case-input" required></textarea></div><div class="field"><label for="case-expected">预期结果</label><textarea id="case-expected" required></textarea></div><div class="field"><label for="case-actual">实际结果</label><textarea id="case-actual"></textarea></div><div class="field"><label for="case-status">状态</label><select id="case-status"><option value="待评测">待评测</option><option value="通过">通过</option><option value="Bad Case">Bad Case</option></select></div><button class="btn" type="submit">加入评测集 ＋</button></form><button class="btn danger" id="clear" type="button" style="margin-top:15px">清空评测集</button></aside>
     <section class="canvas paper"><div class="panel-title"><div><span class="eyebrow">Evaluation workspace</span><h2>测试样本</h2></div><span class="eyebrow" id="count">0 CASES</span></div><div id="table-wrap"></div></section>
-  </div></main>
+    </div>
+  </main>
   <footer class="footer"><div class="wrap footer-inner"><span>QIAN CHEN · AI LEARNING LAB</span><a href="index.html#lab">BACK TO PORTFOLIO ↗</a></div></footer>
   <script>
     const key='qian-ai-lab-eval-v1',form=document.querySelector('#case-form'),wrap=document.querySelector('#table-wrap'),count=document.querySelector('#count');let cases=JSON.parse(localStorage.getItem(key)||'[]');
