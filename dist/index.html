@@ -179,6 +179,16 @@
     .idea-note small{display:block;margin-bottom:15px;font:850 9px ui-monospace,monospace;letter-spacing:.1em;color:#5d584a}
     .idea-note p{margin:0;font:600 17px/1.55 Georgia,"Songti SC",serif}
     .idea-note:nth-child(1){--note-tilt:-1deg}.idea-note:nth-child(2){--note-tilt:.8deg}.idea-note:nth-child(3){--note-tilt:.6deg}.idea-note:nth-child(4){--note-tilt:-.7deg}
+    .lab-asset-link{display:block;color:inherit;text-decoration:none;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+    .lab-asset-link:hover,.lab-asset-link:focus-visible{transform:translate(-3px,-3px);box-shadow:6px 7px 0 var(--blue);background:var(--paper-2);outline:2px solid transparent}
+    .lab-asset-link h4{max-width:78%;font-size:29px}
+    .lab-asset-link .asset-state{position:absolute;left:28px;bottom:23px;font:850 11px ui-monospace,monospace;letter-spacing:.08em;color:var(--blue)}
+    .lab-asset-link .asset-open{position:absolute;right:23px;bottom:20px;font:900 20px Georgia;color:var(--blue)}
+    .idea-garden-link{color:inherit;text-decoration:none;transition:transform .22s ease,box-shadow .22s ease}
+    .idea-garden-link:hover,.idea-garden-link:focus-visible{transform:translate(-2px,-2px);box-shadow:7px 8px 0 rgba(77,115,200,.22);outline:2px solid transparent}
+    .blank-wall{display:grid;grid-template-columns:repeat(2,1fr);gap:17px;align-items:start}
+    .blank-note{min-height:150px;border:1.5px dashed var(--line);background:rgba(255,250,240,.72);display:grid;place-items:center;color:rgba(77,115,200,.55);font:500 42px Georgia;transform:rotate(var(--blank-tilt))}
+    .blank-note:nth-child(1){--blank-tilt:-1deg}.blank-note:nth-child(2){--blank-tilt:.8deg}.blank-note:nth-child(3){--blank-tilt:.4deg}.blank-note.add{border-style:solid;border-color:var(--blue);color:var(--blue);background:rgba(220,229,255,.35)}
 
     .approach-board{position:relative;padding:55px 48px;background:#25332b;color:#f9f3e9;box-shadow:var(--shadow);transform:rotate(-.2deg)}
     .approach-board::before{content:"PRODUCT ≠ FEATURE";position:absolute;right:36px;top:-19px;background:var(--yellow);color:var(--ink);padding:8px 13px;font:900 11px ui-monospace,monospace;transform:rotate(3deg)}
@@ -326,35 +336,25 @@
       </section>
 
       <section class="section wrap" id="lab">
-        <div class="section-head reveal"><div class="section-num">02</div><div class="section-title"><span class="eyebrow">AI Learning Lab / 学习实验室</span><h2>把项目经验，<br>做成可复用资产。</h2><p class="section-intro">这里收集我在跨领域 AI 场景中形成的 Skills、Workflows、Spec Kit 和评测集，也保留尚待验证的需求观察。</p></div></div>
+        <div class="section-head reveal"><div class="section-num">02</div><div class="section-title"><span class="eyebrow">AI Learning Lab / 学习实验室</span><h2>把项目经验，<br>做成可复用资产。</h2><p class="section-intro">这里收集 Skills、Workflows、Spec Kit 和评测集，并留出用于记录新需求观察的 Idea Garden。</p></div></div>
 
         <div class="lab-board reveal">
-          <div class="lab-board-head"><div><span class="lab-label">Reusable assets / 可复用资产</span><h3>下一次遇到相似问题，不必从空白页开始。</h3></div><p>这些资产来自智能营销、空间强排与节水景观项目。它们既是工作方法，也是后续项目可以直接复用和继续迭代的起点。</p></div>
+          <div class="lab-board-head"><div><span class="lab-label">Reusable assets / 可复用资产</span><h3>打开一项资产，进入独立实验页面。</h3></div><p>技能、规格、工作流与评测分别整理；每个入口都可以继续补充新的版本与实践记录。</p></div>
 
           <div class="lab-assets">
-            <article class="lab-asset" data-index="01"><span class="lab-asset-type">SKILLS</span><h4>领域任务技能库</h4><p>把项目中反复出现的判断与执行动作，整理成可以组合的技能单元。</p><ul><li>营销证据检索与机会归纳</li><li>规划条件提取与冲突标记</li><li>Zone 10a 植物筛选与覆盖率预评估</li></ul></article>
-            <article class="lab-asset" data-index="02"><span class="lab-asset-type">SPEC KIT</span><h4>复杂 AI 场景规格包</h4><p>在制作原型前，先把系统如何判断、何时交给人说清楚。</p><ul><li>用户任务与问题边界</li><li>输入来源与结构化字段</li><li>规则、RAG、模型与 HITL 分工</li><li>成功标准、异常与回退路径</li></ul></article>
-            <article class="lab-asset" data-index="03"><span class="lab-asset-type">WORKFLOW</span><h4>工作流模式</h4><p>把复杂任务拆成能够检查、替换和复盘的节点。</p><ul><li>先给证据，再进入生成</li><li>确定性规则与生成模型分工</li><li>缺失信息进入人工确认</li></ul></article>
-            <article class="lab-asset eval" data-index="04"><span class="lab-asset-type">EVALUATION SET</span><h4>项目评测集</h4><p>用项目记录检验工作流改动是否真的改善结果。</p><div class="eval-mini"><div><strong>50 条</strong><span>营销测试集</span></div><div><strong>97→100</strong><span>强排四阶段得分</span></div><div><strong>73.7→100%</strong><span>花园可观察通过率</span></div></div></article>
-          </div>
-
-          <div class="workflow-shelf">
-            <div class="workflow-shelf-head"><h4>Workflow map</h4><span>FROM PROJECT NOTES · ITERABLE</span></div>
-            <div class="workflow-row"><strong>MARKETING AI</strong><div class="workflow-steps"><span>资料检索</span><i>→</i><span>机会判断</span><i>→</i><span>人工选择</span><i>→</i><span>方案生成</span><i>→</i><span>证据评分</span></div></div>
-            <div class="workflow-row"><strong>SPATIAL AI</strong><div class="workflow-steps"><span>约束提取</span><i>→</i><span>规则校验</span><i>→</i><span>方案推演</span><i>→</i><span>人工确认</span><i>→</i><span>智能预审</span></div></div>
-            <div class="workflow-row"><strong>GARDENWISE</strong><div class="workflow-steps"><span>场地需求</span><i>→</i><span>植物推荐</span><i>→</i><span>覆盖率预评估</span><i>→</i><span>视觉生成</span><i>→</i><span>对话修改</span></div></div>
+            <a class="lab-asset lab-asset-link" data-index="01" href="lab-skills.html"><span class="lab-asset-type">SKILLS</span><h4>技能库</h4><span class="asset-state">2 SKILLS</span><span class="asset-open" aria-hidden="true">↗</span></a>
+            <a class="lab-asset lab-asset-link" data-index="02" href="lab-spec-kit.html"><span class="lab-asset-type">SPEC KIT</span><h4>AI 场景规格包</h4><span class="asset-state">OPEN LAB</span><span class="asset-open" aria-hidden="true">↗</span></a>
+            <a class="lab-asset lab-asset-link" data-index="03" href="lab-workflows.html"><span class="lab-asset-type">WORKFLOW</span><h4>工作流搭建</h4><span class="asset-state">OPEN LAB</span><span class="asset-open" aria-hidden="true">↗</span></a>
+            <a class="lab-asset lab-asset-link" data-index="04" href="lab-evaluation.html"><span class="lab-asset-type">EVALUATION SET</span><h4>评测集</h4><span class="asset-state">OPEN LAB</span><span class="asset-open" aria-hidden="true">↗</span></a>
           </div>
         </div>
 
-        <div class="idea-garden reveal">
-          <div class="idea-garden-copy"><span class="eyebrow">Idea Garden / 灵感花园</span><h3>从用户需求里，长出下一次产品探索。</h3><p>这里记录还没有被写成完整 PRD 的观察。它们可能来自一次访谈、一段工作流程，或一个反复出现的卡点。</p><span class="garden-stamp">NEEDS BEFORE FEATURES</span></div>
-          <div class="sticky-wall" aria-label="用户需求观察便签">
-            <article class="idea-note"><small>OBSERVED · MARKETING</small><p>营销人员需要先看清哪个机会值得做，再进入方案生成。证据要和结论一起出现。</p></article>
-            <article class="idea-note"><small>OBSERVED · PLANNING</small><p>规划条件来自不同文件。设计师需要看到规则出处、冲突位置和待确认字段。</p></article>
-            <article class="idea-note"><small>OBSERVED · LANDSCAPE</small><p>植物适生性和覆盖率如果到渲染后才检查，返工会很重。预评估应该前置。</p></article>
-            <article class="idea-note"><small>CROSS-DOMAIN · TO VERIFY</small><p>模型遇到缺失信息时，需要明确向用户提问，并保留清晰的人工接手点。</p></article>
+        <a class="idea-garden idea-garden-link reveal" href="idea-garden.html" aria-label="进入 Idea Garden 灵感花园">
+          <div class="idea-garden-copy"><span class="eyebrow">Idea Garden / 灵感花园</span><h3>从用户需求里，长出下一次产品探索。</h3><p>这是留给新观察和新项目的空白区域。进入后可以添加、编辑和整理新的需求便签。</p><span class="garden-stamp">NEEDS BEFORE FEATURES</span></div>
+          <div class="blank-wall" aria-hidden="true">
+            <span class="blank-note"></span><span class="blank-note"></span><span class="blank-note"></span><span class="blank-note add">＋</span>
           </div>
-        </div>
+        </a>
       </section>
 
       <section class="section wrap" id="approach">

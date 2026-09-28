@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Ellen Design System mark</title>
+  <rect width="128" height="128" rx="24" fill="#F5F0E7"/>
+  <path d="M0 28H128M0 56H128M0 84H128M0 112H128M28 0V128M56 0V128M84 0V128M112 0V128" stroke="#637554" stroke-opacity=".12"/>
+  <path d="M29 18c20-5 51-2 70 5 8 17 7 53 0 79-18 8-52 9-73 0-7-24-5-65 3-84Z" fill="#20211E"/>
+  <path d="M33 20 94 13l4 17-62 6Z" fill="#F2D977" fill-opacity=".78" transform="rotate(-7 65 25)"/>
+  <text x="63" y="83" fill="#F5F0E7" font-family="Georgia,serif" font-size="54" font-style="italic" font-weight="700" text-anchor="middle">E</text>
+  <circle cx="99" cy="98" r="17" fill="#E96145" stroke="#20211E" stroke-width="3"/>
+</svg>

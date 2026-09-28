@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="可编辑的 AI 场景规格包。"><title>AI 场景规格包｜Qian Chen AI Learning Lab</title><link rel="stylesheet" href="lab.css"></head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html#lab"><span class="brand-mark">Q</span><span>QIAN CHEN · AI LEARNING LAB</span></a><div class="nav-actions"><a href="lab-skills.html">技能库</a><a class="back" href="index.html#lab">返回作品集 ↙</a></div></div></nav>
+  <header class="wrap hero"><div class="section-no">02</div><div><span class="eyebrow">Reusable assets / Spec Kit</span><h1>AI 场景规格包</h1><p class="lead">一个空白、可编辑的场景规格工作台。填写内容只保存在当前浏览器，不会公开提交。</p><div class="lab-nav"><a class="chip" href="lab-skills.html">技能库</a><a class="chip active" href="lab-spec-kit.html">AI 场景规格包</a><a class="chip" href="lab-workflows.html">工作流搭建</a><a class="chip" href="lab-evaluation.html">评测集</a><a class="chip" href="idea-garden.html">Idea Garden</a></div></div></header>
+  <main class="wrap"><section class="panel paper" data-label="EDITABLE SPEC"><div class="panel-title"><div><span class="eyebrow">Blank template</span><h2>新建一份场景规格</h2></div><div class="button-row"><button class="btn" id="save" type="button">保存到本地</button><button class="btn danger" id="clear" type="button">清空</button></div></div>
+    <div class="spec-grid" style="padding-top:30px">
+      <div class="spec-block"><label for="problem">01 · 用户问题</label><textarea id="problem" data-field placeholder="需要解决的真实问题是什么？"></textarea></div>
+      <div class="spec-block"><label for="user">02 · 用户与场景</label><textarea id="user" data-field placeholder="谁会在什么情境下使用？"></textarea></div>
+      <div class="spec-block"><label for="input">03 · 输入与来源</label><textarea id="input" data-field placeholder="系统需要哪些输入？来源在哪里？"></textarea></div>
+      <div class="spec-block"><label for="output">04 · 输出与成功标准</label><textarea id="output" data-field placeholder="结果以什么形式交付？怎样算成功？"></textarea></div>
+      <div class="spec-block"><label for="boundary">05 · AI / 规则 / 人工边界</label><textarea id="boundary" data-field placeholder="哪些交给模型，哪些使用规则，哪些需要人工确认？"></textarea></div>
+      <div class="spec-block"><label for="fallback">06 · 异常与回退</label><textarea id="fallback" data-field placeholder="缺失、冲突或低置信度时如何处理？"></textarea></div>
+    </div><p class="save-note" id="save-note">尚未保存</p>
+  </section></main>
+  <footer class="footer"><div class="wrap footer-inner"><span>QIAN CHEN · AI LEARNING LAB</span><a href="index.html#lab">BACK TO PORTFOLIO ↗</a></div></footer>
+  <script>
+    const key='qian-ai-lab-spec-v1',fields=[...document.querySelectorAll('[data-field]')],note=document.querySelector('#save-note');
+    const saved=JSON.parse(localStorage.getItem(key)||'{}');fields.forEach(el=>el.value=saved[el.id]||'');
+    document.querySelector('#save').addEventListener('click',()=>{localStorage.setItem(key,JSON.stringify(Object.fromEntries(fields.map(el=>[el.id,el.value]))));note.textContent='已保存到当前浏览器 · '+new Date().toLocaleString('zh-CN');});
+    document.querySelector('#clear').addEventListener('click',()=>{fields.forEach(el=>el.value='');localStorage.removeItem(key);note.textContent='已清空';});
+  </script>
+</body></html>
