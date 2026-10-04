@@ -1,0 +1,11 @@
+{
+  "name": "qian-chen-ai-pm-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node scripts/check-site.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
