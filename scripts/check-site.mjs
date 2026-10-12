@@ -9,6 +9,7 @@ const errors = [];
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isDirectory() && entry.name === '.vercel') return [];
     const target = path.join(directory, entry.name);
     return entry.isDirectory() ? walk(target) : [target];
   });
